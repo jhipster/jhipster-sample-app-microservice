@@ -1,0 +1,1 @@
+# jhipster-sample-app-microservice
