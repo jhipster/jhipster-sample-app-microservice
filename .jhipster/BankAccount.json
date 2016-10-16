@@ -1,0 +1,27 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "balance",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20161016121722",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "bank_account",
+    "pagination": "no",
+    "microserviceName": "jhipsterSampleMicroservice",
+    "searchEngine": false
+}
