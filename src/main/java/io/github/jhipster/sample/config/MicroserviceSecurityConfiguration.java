@@ -15,15 +15,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.data.repository.query.SecurityEvaluationContextExtension;
 
-import javax.inject.Inject;
-
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
 public class MicroserviceSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-    @Inject
-    private TokenProvider tokenProvider;
+    private final TokenProvider tokenProvider;
+
+    public MicroserviceSecurityConfiguration(TokenProvider tokenProvider) {
+        this.tokenProvider = tokenProvider;
+    }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -52,6 +53,7 @@ public class MicroserviceSecurityConfiguration extends WebSecurityConfigurerAdap
         .and()
             .authorizeRequests()
             .antMatchers("/api/**").authenticated()
+            .antMatchers("/management/health").permitAll()
             .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)
             .antMatchers("/swagger-resources/configuration/ui").permitAll()
         .and()

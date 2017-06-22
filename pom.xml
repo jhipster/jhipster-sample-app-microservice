@@ -5,7 +5,7 @@
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
-        <version>1.4.1.RELEASE</version>
+        <version>1.5.4.RELEASE</version>
         <relativePath/>
     </parent>
 
@@ -15,59 +15,85 @@
     <packaging>war</packaging>
     <name>Jhipster Sample Microservice</name>
 
-    <prerequisites>
-        <maven>3.0.0</maven>
-    </prerequisites>
-
     <properties>
         <argLine>-Djava.security.egd=file:/dev/./urandom -Xmx256m</argLine>
-        <assertj-core.version>3.5.2</assertj-core.version>
-        <awaitility.version>1.7.0</awaitility.version>
+        <assertj.version>3.6.2</assertj.version>
+        <awaitility.version>2.0.0</awaitility.version>
         <commons-io.version>2.5</commons-io.version>
-        <commons-lang.version>3.4</commons-lang.version>
-        <gatling.version>2.2.0</gatling.version>
-        <gatling-maven-plugin.version>2.2.0</gatling-maven-plugin.version>
-        <hazelcast.version>3.6.5</hazelcast.version>
-        <hibernate.version>4.3.11.Final</hibernate.version>
-        <hikaricp.version>2.4.6</hikaricp.version>
+        <commons-lang.version>3.5</commons-lang.version>
+        <docker-maven-plugin.version>0.4.13</docker-maven-plugin.version>
+        <!-- Overridden to get metrics-jcache -->
+        <dropwizard-metrics.version>3.2.2</dropwizard-metrics.version>
+        <gatling.version>2.2.3</gatling.version>
+        <gatling-maven-plugin.version>2.2.1</gatling-maven-plugin.version>
+        <hazelcast-hibernate52.version>1.2</hazelcast-hibernate52.version>
+        <hibernate.version>5.2.8.Final</hibernate.version>
+        <hikaricp.version>2.6.0</hikaricp.version>
+        <jacoco-maven-plugin.version>0.7.9</jacoco-maven-plugin.version>
         <java.version>1.8</java.version>
-        <maven.compiler.source>${java.version}</maven.compiler.source>
-        <maven.compiler.target>${java.version}</maven.compiler.target>
-        <javax.inject.version>1</javax.inject.version>
-        <liquibase.version>3.4.2</liquibase.version>
+        <jcache.version>1.0.0</jcache.version>
+        <jzlib.version>1.1.3</jzlib.version>
+        <jhipster.server.version>1.1.6</jhipster.server.version>
+        <jjwt.version>0.7.0</jjwt.version>
+        <liquibase-hibernate5.version>3.6</liquibase-hibernate5.version>
         <liquibase-slf4j.version>2.0.0</liquibase-slf4j.version>
-        <liquibase-hibernate4.version>3.5</liquibase-hibernate4.version>
-        <mapstruct.version>1.0.0.Final</mapstruct.version>
-        <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+        <logstash-logback-encoder.version>4.9</logstash-logback-encoder.version>
+        <m2e.apt.activation>jdt_apt</m2e.apt.activation>
+        <mapstruct.version>1.1.0.Final</mapstruct.version>
+        <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
         <maven-enforcer-plugin.version>1.4.1</maven-enforcer-plugin.version>
         <maven-resources-plugin.version>3.0.1</maven-resources-plugin.version>
-        <sortpom-maven-plugin.version>2.5.0</sortpom-maven-plugin.version>
-        <metrics-spark-reporter.version>1.2</metrics-spark-reporter.version>
+        <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.version>3.0.0</maven.version>
         <metrics-spring.version>3.1.3</metrics-spring.version>
-        <logstash-logback-encoder.version>4.7</logstash-logback-encoder.version>
-        <postgresql.version>9.4-1203-jdbc42</postgresql.version>
-        <run.addResources>false</run.addResources>
-        <spring-cloud.version>Brixton.SR5</spring-cloud.version>
-        <spring-security.version>4.1.0.RELEASE</spring-security.version>
-        <springfox.version>2.5.0</springfox.version>
+        <node.version>v6.11.0</node.version>
+        <postgresql.version>9.4.1212</postgresql.version>
+        <!-- These remain empty unless the corresponding profile is active -->
+        <profile.no-liquibase />
+        <profile.swagger />
+        <prometheus-simpleclient.version>0.0.20</prometheus-simpleclient.version>
         <!-- Sonar properties -->
         <project.testresult.directory>${project.build.directory}/test-results</project.testresult.directory>
+        <run.addResources>false</run.addResources>
+        <scala-maven-plugin.version>3.2.2</scala-maven-plugin.version>
+        <scala.version>2.12.1</scala.version>
         <sonar-maven-plugin.version>3.2</sonar-maven-plugin.version>
-        <jacoco-maven-plugin.version>0.7.7.201606060606</jacoco-maven-plugin.version>
-        <sonar.exclusions>src/main/webapp/content/**/*.*, src/main/webapp/bower_components/**/*.*, target/www/**/*.*</sonar.exclusions>
-        <sonar.java.codeCoveragePlugin>jacoco</sonar.java.codeCoveragePlugin>
+
+        <sonar.exclusions>src/main/webapp/content/**/*.*, src/main/webapp/bower_components/**/*.*, src/main/webapp/i18n/*.js, target/www/**/*.*</sonar.exclusions>
+
+        <sonar.issue.ignore.multicriteria>S3437,UndocumentedApi,BoldAndItalicTagsCheck</sonar.issue.ignore.multicriteria>
+
+        <!-- Rule https://sonarqube.com/coding_rules#rule_key=Web%3ABoldAndItalicTagsCheck is ignored. Even if we agree that using the "i" tag is an awful practice, this is what is recommended by http://fontawesome.io/examples/ -->
+        <sonar.issue.ignore.multicriteria.BoldAndItalicTagsCheck.resourceKey>src/main/webapp/app/**/*.*</sonar.issue.ignore.multicriteria.BoldAndItalicTagsCheck.resourceKey>
+        <sonar.issue.ignore.multicriteria.BoldAndItalicTagsCheck.ruleKey>Web:BoldAndItalicTagsCheck</sonar.issue.ignore.multicriteria.BoldAndItalicTagsCheck.ruleKey>
+        <!-- Rule https://sonarqube.com/coding_rules#rule_key=squid%3AS3437 is ignored, as a JPA-managed field cannot be transient -->
+        <sonar.issue.ignore.multicriteria.S3437.resourceKey>src/main/java/**/*</sonar.issue.ignore.multicriteria.S3437.resourceKey>
+        <sonar.issue.ignore.multicriteria.S3437.ruleKey>squid:S3437</sonar.issue.ignore.multicriteria.S3437.ruleKey>
+        <!-- Rule http://sonarqube.com/coding_rules#rule_key=squid%3AUndocumentedApi is ignored, as we want to follow "clean code" guidelines and classes, methods and arguments names should be self-explanatory -->
+        <sonar.issue.ignore.multicriteria.UndocumentedApi.resourceKey>src/main/java/**/*</sonar.issue.ignore.multicriteria.UndocumentedApi.resourceKey>
+        <sonar.issue.ignore.multicriteria.UndocumentedApi.ruleKey>squid:UndocumentedApi</sonar.issue.ignore.multicriteria.UndocumentedApi.ruleKey>
+
         <sonar.jacoco.itReportPath>${project.testresult.directory}/coverage/jacoco/jacoco-it.exec</sonar.jacoco.itReportPath>
         <sonar.jacoco.reportPath>${project.testresult.directory}/coverage/jacoco/jacoco.exec</sonar.jacoco.reportPath>
+        <sonar.java.codeCoveragePlugin>jacoco</sonar.java.codeCoveragePlugin>
 
         <sonar.javascript.jstestdriver.reportsPath>${project.testresult.directory}/karma</sonar.javascript.jstestdriver.reportsPath>
+        <!-- For Sonar < 6.2 -->
         <sonar.javascript.lcov.reportPath>${project.testresult.directory}/coverage/report-lcov/lcov.info</sonar.javascript.lcov.reportPath>
+        <!-- For Sonar >= 6.2 -->
+        <sonar.javascript.lcov.reportPaths>${project.testresult.directory}/coverage/report-lcov/lcov.info</sonar.javascript.lcov.reportPaths>
 
         <sonar.sources>${project.basedir}/src/main/</sonar.sources>
         <sonar.surefire.reportsPath>${project.testresult.directory}/surefire-reports</sonar.surefire.reportsPath>
         <sonar.tests>${project.basedir}/src/test/</sonar.tests>
-        <!-- These remain empty unless the corresponding profile is active -->
-        <profile.no-liquibase></profile.no-liquibase>
-        <profile.swagger></profile.swagger>
+
+        <!-- Spring properties -->
+        <spring-cloud.version>Dalston.RELEASE</spring-cloud.version>
+        <springfox.version>2.6.1</springfox.version>
+        <validation-api.version>1.1.0.Final</validation-api.version>
+        <yarn.version>v0.24.6</yarn.version>
     </properties>
 
     <dependencyManagement>
@@ -84,21 +110,17 @@
 
     <dependencies>
         <dependency>
+            <groupId>io.github.jhipster</groupId>
+            <artifactId>jhipster</artifactId>
+            <version>${jhipster.server.version}</version>
+        </dependency>
+        <dependency>
             <groupId>io.dropwizard.metrics</groupId>
             <artifactId>metrics-core</artifactId>
         </dependency>
         <dependency>
             <groupId>io.dropwizard.metrics</groupId>
             <artifactId>metrics-annotation</artifactId>
-            <version>${dropwizard-metrics.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.dropwizard.metrics</groupId>
-            <artifactId>metrics-graphite</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.dropwizard.metrics</groupId>
-            <artifactId>metrics-healthchecks</artifactId>
             <version>${dropwizard-metrics.version}</version>
         </dependency>
         <dependency>
@@ -119,21 +141,14 @@
         <dependency>
             <groupId>io.dropwizard.metrics</groupId>
             <artifactId>metrics-servlets</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>metrics-healthchecks</artifactId>
-                    <groupId>io.dropwizard.metrics</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-hibernate4</artifactId>
+            <artifactId>jackson-datatype-hibernate5</artifactId>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-hppc</artifactId>
-            <version>${jackson.version}</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
@@ -142,7 +157,10 @@
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-json-org</artifactId>
-            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.module</groupId>
+            <artifactId>jackson-module-afterburner</artifactId>
         </dependency>
         <dependency>
             <groupId>com.h2database</groupId>
@@ -151,20 +169,18 @@
         <dependency>
             <groupId>com.hazelcast</groupId>
             <artifactId>hazelcast</artifactId>
-            <version>${hazelcast.version}</version>
         </dependency>
         <dependency>
             <groupId>com.hazelcast</groupId>
-            <artifactId>hazelcast-hibernate4</artifactId>
-            <version>${hazelcast.version}</version>
+            <artifactId>hazelcast-hibernate52</artifactId>
+            <version>${hazelcast-hibernate52.version}</version>
         </dependency>
         <dependency>
             <groupId>com.hazelcast</groupId>
             <artifactId>hazelcast-spring</artifactId>
-            <version>${hazelcast.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.jayway.awaitility</groupId>
+            <groupId>org.awaitility</groupId>
             <artifactId>awaitility</artifactId>
             <version>${awaitility.version}</version>
             <scope>test</scope>
@@ -187,6 +203,11 @@
             </exclusions>
         </dependency>
         <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-bean-validators</artifactId>
+            <version>${springfox.version}</version>
+        </dependency>
+        <dependency>
             <groupId>com.mattbertolini</groupId>
             <artifactId>liquibase-slf4j</artifactId>
             <version>${liquibase-slf4j.version}</version>
@@ -195,30 +216,10 @@
             <groupId>com.ryantenney.metrics</groupId>
             <artifactId>metrics-spring</artifactId>
             <version>${metrics-spring.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.codahale.metrics</groupId>
-                    <artifactId>metrics-annotation</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.codahale.metrics</groupId>
-                    <artifactId>metrics-core</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.codahale.metrics</groupId>
-                    <artifactId>metrics-healthchecks</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.zaxxer</groupId>
             <artifactId>HikariCP</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>tools</artifactId>
-                    <groupId>com.sun</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
 
         <dependency>
@@ -237,16 +238,18 @@
             <version>${gatling.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- include netty handler explicitly to overcome dependency mismatch when using cassandra -->
         <dependency>
-            <groupId>javax.inject</groupId>
-            <artifactId>javax.inject</artifactId>
-            <version>${javax.inject.version}</version>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jzlib</artifactId>
+            <version>${jzlib.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.cache</groupId>
+            <artifactId>cache-api</artifactId>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
-            <version>${assertj-core.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -260,12 +263,6 @@
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>jetty-servlet</artifactId>
-                    <groupId>org.eclipse.jetty</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -292,6 +289,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.vaadin.external.google</groupId>
+                    <artifactId>android-json</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -321,6 +324,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.vaadin.external.google</groupId>
+                    <artifactId>android-json</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
@@ -349,7 +358,7 @@
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
-            <version>0.6.0</version>
+            <version>${jjwt.version}</version>
         </dependency>
         <!-- Spring Cloud -->
         <dependency>
@@ -370,14 +379,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-config</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-hystrix</artifactId>
         </dependency>
         <dependency>
@@ -387,6 +388,14 @@
         <dependency>
             <groupId>org.springframework.retry</groupId>
             <artifactId>spring-retry</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -412,54 +421,19 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-cloudfoundry-connector</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-spring-service-connector</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-localconfig-connector</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cloud-connectors</artifactId>
         </dependency>
         <!-- security -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-data</artifactId>
         </dependency>
-        <!-- reporting -->
-        <dependency>
-            <groupId>fr.ippon.spark.metrics</groupId>
-            <artifactId>metrics-spark-reporter</artifactId>
-            <version>${metrics-spark-reporter.version}</version>
-        </dependency>
         <!-- jhipster-needle-maven-add-dependency -->
     </dependencies>
     <build>
         <defaultGoal>spring-boot:run</defaultGoal>
         <plugins>
-            <plugin>
-                <groupId>com.github.ekryd.sortpom</groupId>
-                <artifactId>sortpom-maven-plugin</artifactId>
-                <version>${sortpom-maven-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sort</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <sortProperties>true</sortProperties>
-                    <nrOfIndentSpace>4</nrOfIndentSpace>
-                    <sortDependencies>groupId,artifactId</sortDependencies>
-                    <sortPlugins>groupId,artifactId</sortPlugins>
-                    <keepBlankLines>true</keepBlankLines>
-                    <expandEmptyElements>false</expandEmptyElements>
-                </configuration>
-            </plugin>
             <plugin>
                 <groupId>io.gatling</groupId>
                 <artifactId>gatling-maven-plugin</artifactId>
@@ -470,12 +444,30 @@
                     <resultsFolder>target/gatling/results</resultsFolder>
                     <bodiesFolder>src/test/gatling/bodies</bodiesFolder>
                     <simulationsFolder>src/test/gatling/simulations</simulationsFolder>
-                    <!-- This will run multiple simulations one by one. Useful when doing gatling tests in CI
-                         You must remove the simulationClass property in order to run multiple simulations -->
-                    <!--<runMultipleSimulations>true</runMultipleSimulations>-->
-                    <!-- This will force Gatling to ask which simulation to run
-                      This is useful when you have multiple simulations -->
-                    <simulationClass>*</simulationClass>
+                    <!--
+                    This will run multiple simulations one by one. Useful when doing Gatling
+                    tests in CI.
+                    -->
+                    <runMultipleSimulations>true</runMultipleSimulations>
+                    <!--
+                    To run only one simulation, you need to disable the "runMultipleSimulations"
+                    above, and write the name of your simulation below.
+                    -->
+                    <!--<simulationClass>WriteTheNameOfYourGatlingSimulation</simulationClass>-->
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${mapstruct.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
                 </configuration>
             </plugin>
             <plugin>
@@ -501,8 +493,8 @@
                 <configuration>
                     <rules>
                         <requireMavenVersion>
-                            <message>You are running an older version of Maven. JHipster requires at least Maven 3.0</message>
-                            <version>[3.0.0,)</version>
+                            <message>You are running an older version of Maven. JHipster requires at least Maven ${maven.version}</message>
+                            <version>[${maven.version},)</version>
                         </requireMavenVersion>
                         <requireJavaVersion>
                             <message>You are running an older version of Java. JHipster requires at least JDK ${java.version}</message>
@@ -593,39 +585,6 @@
                 <version>${sonar-maven-plugin.version}</version>
             </plugin>
             <plugin>
-                <groupId>org.bsc.maven</groupId>
-                <artifactId>maven-processor-plugin</artifactId>
-                <version>2.2.4</version>
-                <configuration>
-                    <defaultOutputDirectory>
-                        ${project.build.directory}/generated-sources
-                    </defaultOutputDirectory>
-                    <processors>
-                        <processor>org.mapstruct.ap.MappingProcessor</processor>
-                    </processors>
-                    <options>
-                        <mapstruct.suppressGeneratorTimestamp>true</mapstruct.suppressGeneratorTimestamp>
-                        <mapstruct.defaultComponentModel>spring</mapstruct.defaultComponentModel>
-                    </options>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>process</id>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>process</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.mapstruct</groupId>
-                        <artifactId>mapstruct-processor</artifactId>
-                        <version>${mapstruct.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-            <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>${liquibase.version}</version>
@@ -637,7 +596,7 @@
                     <defaultSchemaName></defaultSchemaName>
                     <username>jhipsterSampleMicroservice</username>
                     <password></password>
-                    <referenceUrl>hibernate:spring:io.github.jhipster.sample.domain?dialect=org.hibernate.dialect.H2Dialect&amp;hibernate.ejb.naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy</referenceUrl>
+                    <referenceUrl>hibernate:spring:io.github.jhipster.sample.domain?dialect=org.hibernate.dialect.H2Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
                     <verbose>true</verbose>
                     <logging>debug</logging>
                 </configuration>
@@ -645,17 +604,22 @@
                     <dependency>
                         <groupId>org.javassist</groupId>
                         <artifactId>javassist</artifactId>
-                        <version>3.18.2-GA</version>
+                        <version>${javassist.version}</version>
                     </dependency>
                     <dependency>
                         <groupId>org.liquibase.ext</groupId>
-                        <artifactId>liquibase-hibernate4</artifactId>
-                        <version>${liquibase-hibernate4.version}</version>
+                        <artifactId>liquibase-hibernate5</artifactId>
+                        <version>${liquibase-hibernate5.version}</version>
                     </dependency>
                     <dependency>
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-starter-data-jpa</artifactId>
                         <version>${project.parent.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>javax.validation</groupId>
+                        <artifactId>validation-api</artifactId>
+                        <version>${validation-api.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -674,7 +638,7 @@
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
-                <version>0.4.10</version>
+                <version>${docker-maven-plugin.version}</version>
                 <configuration>
                     <imageName>jhipstersamplemicroservice</imageName>
                     <dockerDirectory>src/main/docker</dockerDirectory>
@@ -724,7 +688,7 @@
                         </lifecycleMappingMetadata>
                     </configuration>
                 </plugin>
-             </plugins>
+            </plugins>
         </pluginManagement>
     </build>
     <profiles>
@@ -739,15 +703,6 @@
             <properties>
                 <profile.swagger>,swagger</profile.swagger>
             </properties>
-        </profile>
-        <profile>
-            <id>shell</id>
-            <dependencies>
-                <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-remote-shell</artifactId>
-                </dependency>
-            </dependencies>
         </profile>
         <profile>
             <id>dev</id>
@@ -794,7 +749,6 @@
                 <plugins>
                     <plugin>
                         <artifactId>maven-clean-plugin</artifactId>
-                        <version>2.5</version>
                         <configuration>
                             <filesets>
                                 <fileset>
@@ -893,7 +847,7 @@
                     <plugin>
                         <groupId>net.alchim31.maven</groupId>
                         <artifactId>scala-maven-plugin</artifactId>
-                        <version>3.2.2</version>
+                        <version>${scala-maven-plugin.version}</version>
                         <executions>
                             <execution>
                                 <id>compile</id>
@@ -915,7 +869,7 @@
                         <configuration>
                             <recompileMode>incremental</recompileMode>
                             <verbose>true</verbose>
-                            <scalaVersion>2.11.7</scalaVersion>
+                            <scalaVersion>${scala.version}</scalaVersion>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -926,6 +880,53 @@
                 <!-- default Spring profiles -->
                 <spring.profiles.active>dev,swagger</spring.profiles.active>
             </properties>
+        </profile>
+        <profile>
+            <!--
+                Profile for monitoring the application with Graphite.
+            -->
+            <id>graphite</id>
+            <dependencies>
+                <dependency>
+                    <groupId>io.dropwizard.metrics</groupId>
+                    <artifactId>metrics-graphite</artifactId>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <!--
+                Profile for monitoring the application with Prometheus.
+            -->
+            <id>prometheus</id>
+            <dependencies>
+                <dependency>
+                    <groupId>io.prometheus</groupId>
+                    <artifactId>simpleclient</artifactId>
+                    <version>${prometheus-simpleclient.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>io.prometheus</groupId>
+                    <artifactId>simpleclient_servlet</artifactId>
+                    <version>${prometheus-simpleclient.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>io.prometheus</groupId>
+                    <artifactId>simpleclient_dropwizard</artifactId>
+                    <version>${prometheus-simpleclient.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <!--
+                Profile for tracing requests with Zipkin.
+            -->
+            <id>zipkin</id>
+            <dependencies>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-starter-zipkin</artifactId>
+                </dependency>
+            </dependencies>
         </profile>
         <profile>
             <!--

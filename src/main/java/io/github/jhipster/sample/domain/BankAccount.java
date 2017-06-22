@@ -20,7 +20,8 @@ public class BankAccount implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequenceGenerator")
+    @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
     @NotNull
@@ -74,23 +75,23 @@ public class BankAccount implements Serializable {
             return false;
         }
         BankAccount bankAccount = (BankAccount) o;
-        if(bankAccount.id == null || id == null) {
+        if (bankAccount.getId() == null || getId() == null) {
             return false;
         }
-        return Objects.equals(id, bankAccount.id);
+        return Objects.equals(getId(), bankAccount.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(id);
+        return Objects.hashCode(getId());
     }
 
     @Override
     public String toString() {
         return "BankAccount{" +
-            "id=" + id +
-            ", name='" + name + "'" +
-            ", balance='" + balance + "'" +
-            '}';
+            "id=" + getId() +
+            ", name='" + getName() + "'" +
+            ", balance='" + getBalance() + "'" +
+            "}";
     }
 }

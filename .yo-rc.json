@@ -1,6 +1,6 @@
 {
   "generator-jhipster": {
-    "jhipsterVersion": "3.9.1",
+    "jhipsterVersion": "4.5.5",
     "baseName": "jhipsterSampleMicroservice",
     "packageName": "io.github.jhipster.sample",
     "packageFolder": "io/github/jhipster/sample",
@@ -25,6 +25,7 @@
     ],
     "jhiPrefix": "jhi",
     "skipClient": true,
-    "skipUserManagement": true
+    "skipUserManagement": true,
+    "clientPackageManager": "yarn"
   }
 }

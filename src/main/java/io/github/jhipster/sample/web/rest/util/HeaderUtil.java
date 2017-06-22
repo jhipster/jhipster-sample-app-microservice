@@ -3,7 +3,6 @@ package io.github.jhipster.sample.web.rest.util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
-
 /**
  * Utility class for HTTP headers creation.
  */
@@ -11,7 +10,7 @@ public final class HeaderUtil {
 
     private static final Logger log = LoggerFactory.getLogger(HeaderUtil.class);
 
-    private HeaderUtil(){
+    private HeaderUtil() {
     }
 
     public static HttpHeaders createAlert(String message, String param) {
@@ -34,7 +33,7 @@ public final class HeaderUtil {
     }
 
     public static HttpHeaders createFailureAlert(String entityName, String errorKey, String defaultMessage) {
-        log.error("Entity creation failed, {}", defaultMessage);
+        log.error("Entity processing failed, {}", defaultMessage);
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-jhipsterSampleMicroserviceApp-error", defaultMessage);
         headers.add("X-jhipsterSampleMicroserviceApp-params", entityName);

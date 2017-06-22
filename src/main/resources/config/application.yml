@@ -1,8 +1,11 @@
 # ===================================================================
 # Spring Boot configuration.
 #
-# This configuration will be overriden by the Spring profile you use,
+# This configuration will be overridden by the Spring profile you use,
 # for example application-dev.yml if you use the "dev" profile.
+#
+# More information on profiles: https://jhipster.github.io/profiles/
+# More information on configuration properties: https://jhipster.github.io/common-application-properties/
 # ===================================================================
 
 # ===================================================================
@@ -12,15 +15,40 @@
 # ===================================================================
 
 eureka:
+    client:
+        enabled: true
+        healthcheck:
+            enabled: true
+        fetch-registry: true
+        register-with-eureka: true
+        instance-info-replication-interval-seconds: 10
+        registry-fetch-interval-seconds: 10
     instance:
         appname: jhipsterSampleMicroservice
-        instanceId: jhipsterSampleMicroservice:${spring.application.instance_id:${random.value}}
-        statusPageUrlPath: ${management.context-path}/info
-        healthCheckUrlPath: ${management.context-path}/health
+        instanceId: jhipsterSampleMicroservice:${spring.application.instance-id:${random.value}}
+        lease-renewal-interval-in-seconds: 5
+        lease-expiration-duration-in-seconds: 10
+        status-page-url-path: ${management.context-path}/info
+        health-check-url-path: ${management.context-path}/health
+        metadata-map:
+            zone: primary # This is needed for the load balancer
+            profile: ${spring.profiles.active}
+            version: ${info.project.version}
 ribbon:
     eureka:
         enabled: true
+# See https://github.com/Netflix/Hystrix/wiki/Configuration
+#hystrix:
+#    command:
+#        default:
+#            execution:
+#                isolation:
+#                    thread:
+#                        timeoutInMilliseconds: 10000
+
 management:
+    security:
+        roles: ADMIN
     context-path: /management
     health:
         mail:
@@ -35,7 +63,8 @@ spring:
         hibernate:
             ddl-auto: none
             naming:
-                strategy: org.springframework.boot.orm.jpa.hibernate.SpringNamingStrategy
+                physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+                implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
     messages:
         basename: i18n/messages
     mvc:
@@ -48,16 +77,25 @@ security:
     basic:
         enabled: false
 
+server:
+    session:
+        cookie:
+            http-only: true
+
+
 # ===================================================================
 # JHipster specific properties
+#
+# Full reference is available at: https://jhipster.github.io/common-application-properties/
 # ===================================================================
 
 jhipster:
     async:
-        corePoolSize: 2
-        maxPoolSize: 50
-        queueCapacity: 10000
-    #cors: #By default CORS are not enabled. Uncomment to enable.
+        core-pool-size: 2
+        max-pool-size: 50
+        queue-capacity: 10000
+    # By default CORS is disabled. Uncomment to enable.
+    #cors:
         #allowed-origins: "*"
         #allowed-methods: GET, PUT, POST, DELETE, OPTIONS
         #allowed-headers: "*"
@@ -67,15 +105,26 @@ jhipster:
     mail:
         from: jhipsterSampleMicroservice@localhost
     swagger:
+        default-include-pattern: /api/.*
         title: jhipsterSampleMicroservice API
         description: jhipsterSampleMicroservice API documentation
         version: 0.0.1
-        termsOfServiceUrl:
-        contactName:
-        contactUrl:
-        contactEmail:
+        terms-of-service-url:
+        contact-name:
+        contact-url:
+        contact-email:
         license:
-        licenseUrl:
+        license-url:
     ribbon:
-        # comma seperated list of profiles to show a ribbon on the GUI
-        displayOnActiveProfiles: dev
+        display-on-active-profiles: dev
+
+# ===================================================================
+# Application specific properties
+# Add your own application properties here, see the ApplicationProperties class
+# to have type-safe configuration, like in the JHipsterProperties above
+#
+# More documentation is available at:
+# https://jhipster.github.io/common-application-properties/
+# ===================================================================
+
+application:
