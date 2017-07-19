@@ -1,5 +1,5 @@
 # jhipsterSampleMicroservice
-This application was generated using JHipster 4.6.1, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v4.6.1](https://jhipster.github.io/documentation-archive/v4.6.1).
+This application was generated using JHipster 4.6.2, you can find documentation and help at [https://jhipster.github.io/documentation-archive/v4.6.2](https://jhipster.github.io/documentation-archive/v4.6.2).
 
 This is a "microservice" application intended to be part of a microservice architecture, please refer to the [Doing microservices with JHipster][] page of the documentation for more information.
 
@@ -81,13 +81,13 @@ For more information refer to [Using Docker and Docker-Compose][], this page als
 To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
 
 [JHipster Homepage and latest documentation]: https://jhipster.github.io
-[JHipster 4.6.1 archive]: https://jhipster.github.io/documentation-archive/v4.6.1
-[Doing microservices with JHipster]: https://jhipster.github.io/documentation-archive/v4.6.1/microservices-architecture/
-[Using JHipster in development]: https://jhipster.github.io/documentation-archive/v4.6.1/development/
-[Service Discovery and Configuration with the JHipster-Registry]: https://jhipster.github.io/documentation-archive/v4.6.1/microservices-architecture/#jhipster-registry
-[Using Docker and Docker-Compose]: https://jhipster.github.io/documentation-archive/v4.6.1/docker-compose
-[Using JHipster in production]: https://jhipster.github.io/documentation-archive/v4.6.1/production/
-[Running tests page]: https://jhipster.github.io/documentation-archive/v4.6.1/running-tests/
-[Setting up Continuous Integration]: https://jhipster.github.io/documentation-archive/v4.6.1/setting-up-ci/
+[JHipster 4.6.2 archive]: https://jhipster.github.io/documentation-archive/v4.6.2
+[Doing microservices with JHipster]: https://jhipster.github.io/documentation-archive/v4.6.2/microservices-architecture/
+[Using JHipster in development]: https://jhipster.github.io/documentation-archive/v4.6.2/development/
+[Service Discovery and Configuration with the JHipster-Registry]: https://jhipster.github.io/documentation-archive/v4.6.2/microservices-architecture/#jhipster-registry
+[Using Docker and Docker-Compose]: https://jhipster.github.io/documentation-archive/v4.6.2/docker-compose
+[Using JHipster in production]: https://jhipster.github.io/documentation-archive/v4.6.2/production/
+[Running tests page]: https://jhipster.github.io/documentation-archive/v4.6.2/running-tests/
+[Setting up Continuous Integration]: https://jhipster.github.io/documentation-archive/v4.6.2/setting-up-ci/
 
 [Gatling]: http://gatling.io/
