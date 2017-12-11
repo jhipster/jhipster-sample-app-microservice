@@ -11,6 +11,6 @@ import org.springframework.data.jpa.repository.*;
  */
 @SuppressWarnings("unused")
 @Repository
-public interface BankAccountRepository extends JpaRepository<BankAccount,Long> {
-    
+public interface BankAccountRepository extends JpaRepository<BankAccount, Long> {
+
 }

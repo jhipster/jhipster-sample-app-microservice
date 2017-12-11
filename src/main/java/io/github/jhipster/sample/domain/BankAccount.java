@@ -5,6 +5,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -32,6 +33,7 @@ public class BankAccount implements Serializable {
     @Column(name = "balance", precision=10, scale=2, nullable = false)
     private BigDecimal balance;
 
+    // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
     }
@@ -65,6 +67,7 @@ public class BankAccount implements Serializable {
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -91,7 +94,7 @@ public class BankAccount implements Serializable {
         return "BankAccount{" +
             "id=" + getId() +
             ", name='" + getName() + "'" +
-            ", balance='" + getBalance() + "'" +
+            ", balance=" + getBalance() +
             "}";
     }
 }

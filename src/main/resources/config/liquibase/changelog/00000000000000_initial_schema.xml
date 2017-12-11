@@ -59,5 +59,4 @@
                                  referencedColumnNames="event_id"
                                  referencedTableName="jhi_persistent_audit_event"/>
     </changeSet>
-
 </databaseChangeLog>

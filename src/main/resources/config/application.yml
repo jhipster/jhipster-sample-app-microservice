@@ -4,8 +4,8 @@
 # This configuration will be overridden by the Spring profile you use,
 # for example application-dev.yml if you use the "dev" profile.
 #
-# More information on profiles: https://jhipster.github.io/profiles/
-# More information on configuration properties: https://jhipster.github.io/common-application-properties/
+# More information on profiles: http://www.jhipster.tech/profiles/
+# More information on configuration properties: http://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
 # ===================================================================
@@ -45,6 +45,13 @@ ribbon:
 #                isolation:
 #                    thread:
 #                        timeoutInMilliseconds: 10000
+# See https://github.com/spring-cloud/spring-cloud-netflix/issues/1330
+feign:
+    hystrix:
+        enabled: true
+
+hystrix:
+    share-security-context: true
 
 management:
     security:
@@ -72,7 +79,6 @@ spring:
             enabled: false
     thymeleaf:
         mode: XHTML
-
 security:
     basic:
         enabled: false
@@ -82,11 +88,14 @@ server:
         cookie:
             http-only: true
 
+info:
+    project:
+        version: #project.version#
 
 # ===================================================================
 # JHipster specific properties
 #
-# Full reference is available at: https://jhipster.github.io/common-application-properties/
+# Full reference is available at: http://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
 jhipster:
@@ -97,9 +106,9 @@ jhipster:
     # By default CORS is disabled. Uncomment to enable.
     #cors:
         #allowed-origins: "*"
-        #allowed-methods: GET, PUT, POST, DELETE, OPTIONS
+        #allowed-methods: "*"
         #allowed-headers: "*"
-        #exposed-headers:
+        #exposed-headers: "Authorization,Link,X-Total-Count"
         #allow-credentials: true
         #max-age: 1800
     mail:
@@ -124,7 +133,7 @@ jhipster:
 # to have type-safe configuration, like in the JHipsterProperties above
 #
 # More documentation is available at:
-# https://jhipster.github.io/common-application-properties/
+# http://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
 application:

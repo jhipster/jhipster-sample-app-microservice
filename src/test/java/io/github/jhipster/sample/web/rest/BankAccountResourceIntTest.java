@@ -24,6 +24,7 @@ import javax.persistence.EntityManager;
 import java.math.BigDecimal;
 import java.util.List;
 
+import static io.github.jhipster.sample.web.rest.TestUtil.createFormattingConversionService;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -66,10 +67,11 @@ public class BankAccountResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        BankAccountResource bankAccountResource = new BankAccountResource(bankAccountRepository);
+        final BankAccountResource bankAccountResource = new BankAccountResource(bankAccountRepository);
         this.restBankAccountMockMvc = MockMvcBuilders.standaloneSetup(bankAccountResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
+            .setConversionService(createFormattingConversionService())
             .setMessageConverters(jacksonMessageConverter).build();
     }
 
@@ -124,7 +126,7 @@ public class BankAccountResourceIntTest {
             .content(TestUtil.convertObjectToJsonBytes(bankAccount)))
             .andExpect(status().isBadRequest());
 
-        // Validate the Alice in the database
+        // Validate the BankAccount in the database
         List<BankAccount> bankAccountList = bankAccountRepository.findAll();
         assertThat(bankAccountList).hasSize(databaseSizeBeforeCreate);
     }
@@ -212,6 +214,8 @@ public class BankAccountResourceIntTest {
 
         // Update the bankAccount
         BankAccount updatedBankAccount = bankAccountRepository.findOne(bankAccount.getId());
+        // Disconnect from session so that the updates on updatedBankAccount are not directly saved in db
+        em.detach(updatedBankAccount);
         updatedBankAccount
             .name(UPDATED_NAME)
             .balance(UPDATED_BALANCE);
