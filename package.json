@@ -8,7 +8,7 @@
     "node_modules"
   ],
   "devDependencies": {
-    "generator-jhipster": "4.12.0"
+    "generator-jhipster": "4.13.0"
   },
   "engines": {
     "node": ">=6.9.0"
