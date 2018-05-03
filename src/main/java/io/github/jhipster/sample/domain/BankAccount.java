@@ -30,7 +30,7 @@ public class BankAccount implements Serializable {
     private String name;
 
     @NotNull
-    @Column(name = "balance", precision=10, scale=2, nullable = false)
+    @Column(name = "balance", precision = 10, scale = 2, nullable = false)
     private BigDecimal balance;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

@@ -15,7 +15,7 @@
 
 eureka:
     client:
-        enabled: true
+        enabled: false
     instance:
         appname: jhipsterSampleMicroservice
         instanceId: jhipsterSampleMicroservice:${spring.application.instance-id:${random.value}}

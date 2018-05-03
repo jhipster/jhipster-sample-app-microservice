@@ -33,25 +33,33 @@ eureka:
         metadata-map:
             zone: primary # This is needed for the load balancer
             profile: ${spring.profiles.active}
-            version: ${info.project.version}
+            version: ${info.project.version:}
+            git-version: ${git.commit.id.describe:}
+            git-commit: ${git.commit.id.abbrev:}
+            git-branch: ${git.branch:}
 ribbon:
     eureka:
         enabled: true
-# See https://github.com/Netflix/Hystrix/wiki/Configuration
-#hystrix:
-#    command:
-#        default:
-#            execution:
-#                isolation:
-#                    thread:
-#                        timeoutInMilliseconds: 10000
-# See https://github.com/spring-cloud/spring-cloud-netflix/issues/1330
 feign:
     hystrix:
         enabled: true
+#    client:
+#        config:
+#            default:
+#                connectTimeout: 5000
+#                readTimeout: 5000
 
+# See https://github.com/Netflix/Hystrix/wiki/Configuration
 hystrix:
-    share-security-context: true
+    command:
+        default:
+            execution:
+                isolation:
+                    strategy: SEMAPHORE
+# See https://github.com/spring-cloud/spring-cloud-netflix/issues/1330
+#                    thread:
+#                        timeoutInMilliseconds: 10000
+    shareSecurityContext: true
 
 management:
     endpoints:
@@ -95,9 +103,10 @@ server:
             cookie:
                 http-only: true
 
+# Properties to be exposed on the /info management endpoint
 info:
-    project:
-        version: #project.version#
+    # Comma separated list of profiles that will trigger the ribbon to show
+    display-ribbon-on-profiles: "dev"
 
 # ===================================================================
 # JHipster specific properties
@@ -131,8 +140,6 @@ jhipster:
         contact-email:
         license:
         license-url:
-    ribbon:
-        display-on-active-profiles: dev
 
 # ===================================================================
 # Application specific properties
