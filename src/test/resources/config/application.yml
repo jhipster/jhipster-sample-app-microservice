@@ -58,6 +58,7 @@ spring:
             enabled: false
     thymeleaf:
         mode: HTML
+        
 
 server:
     port: 10344
