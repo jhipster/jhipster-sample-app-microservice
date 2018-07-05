@@ -189,8 +189,8 @@ base@^0.11.1:
     pascalcase "^0.1.1"
 
 bcrypt-pbkdf@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.1.tgz#63bc5dcb61331b92bc05fd528953c33462a06f8d"
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.2.tgz#a4301d389b6a43f9b67ff3ca11a3f6637e360e9e"
   dependencies:
     tweetnacl "^0.14.3"
 
@@ -378,9 +378,9 @@ combined-stream@1.0.6, combined-stream@~1.0.5:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@2.15.1:
-  version "2.15.1"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-2.15.1.tgz#df46e867d0fc2aec66a34662b406a9ccafff5b0f"
+commander@2.16.0:
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.16.0.tgz#f16390593996ceb4f3eeb020b31d78528f7f8a50"
 
 commondir@^1.0.1:
   version "1.0.1"
@@ -488,9 +488,9 @@ decompress-response@^3.2.0:
   dependencies:
     mimic-response "^1.0.0"
 
-deep-extend@^0.5.1:
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.5.1.tgz#b894a9dd90d3023fbf1c55a394fb858eb2066f1f"
+deep-extend@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.6.0.tgz#c4fa7c95404a17a9c3e8ca7e1537312b736330ac"
 
 define-property@^0.2.5:
   version "0.2.5"
@@ -760,30 +760,30 @@ gauge@~1.2.5:
     lodash.padend "^4.1.0"
     lodash.padstart "^4.1.0"
 
-generator-jhipster@5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/generator-jhipster/-/generator-jhipster-5.0.1.tgz#6035f46bbc2b8959106e01fd2cbec1e9e2c8f5ca"
+generator-jhipster@5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/generator-jhipster/-/generator-jhipster-5.0.2.tgz#0c261ff54bc0514006fa9be9d37ef8d1692fd0ce"
   dependencies:
     chalk "2.4.1"
-    commander "2.15.1"
+    commander "2.16.0"
     didyoumean "1.2.1"
     ejs "2.6.1"
     glob "7.1.2"
     gulp-filter "5.1.0"
     insight "0.10.1"
     jhipster-core "3.0.2"
-    js-yaml "3.11.0"
+    js-yaml "3.12.0"
     lodash "4.17.10"
     meow "5.0.0"
     mkdirp "0.5.1"
     pluralize "7.0.0"
-    prettier "1.12.1"
+    prettier "1.13.7"
     randexp "0.4.9"
     semver "5.5.0"
     shelljs "0.8.2"
     tabtab "2.2.2"
     through2 "2.0.3"
-    yeoman-environment "2.1.1"
+    yeoman-environment "2.3.0"
     yeoman-generator "2.0.5"
 
 get-stream@^3.0.0:
@@ -835,7 +835,18 @@ glob@7.1.2, glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@^7.1.2:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-globby@^8.0.0, globby@^8.0.1:
+globby@^7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/globby/-/globby-7.1.1.tgz#fb2ccff9401f8600945dfada97440cca972b8680"
+  dependencies:
+    array-union "^1.0.1"
+    dir-glob "^2.0.0"
+    glob "^7.1.2"
+    ignore "^3.3.5"
+    pify "^3.0.0"
+    slash "^1.0.0"
+
+globby@^8.0.1:
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/globby/-/globby-8.0.1.tgz#b5ad48b8aa80b35b814fc1281ecc851f1d2b5b50"
   dependencies:
@@ -947,8 +958,8 @@ has-values@^1.0.0:
     kind-of "^4.0.0"
 
 hosted-git-info@^2.1.4:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.6.0.tgz#23235b29ab230c576aab0d4f13fc046b0b038222"
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.6.1.tgz#6e4cee78b01bb849dcf93527708c69fdbee410df"
 
 http-signature@~1.2.0:
   version "1.2.0"
@@ -1138,10 +1149,6 @@ is-number@^3.0.0:
   dependencies:
     kind-of "^3.0.2"
 
-is-number@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/is-number/-/is-number-4.0.0.tgz#0026e37f5454d73e356dfe6564699867c6a7f0ff"
-
 is-obj@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/is-obj/-/is-obj-1.0.1.tgz#3e4729ac1f5fde025cd7d83a896dab9f4f67db0f"
@@ -1149,12 +1156,6 @@ is-obj@^1.0.0:
 is-object@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/is-object/-/is-object-1.0.1.tgz#8952688c5ec2ffd6b03ecc85e769e02903083470"
-
-is-odd@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/is-odd/-/is-odd-2.0.0.tgz#7646624671fd7ea558ccd9a2795182f2958f1b24"
-  dependencies:
-    is-number "^4.0.0"
 
 is-plain-obj@^1.1.0:
   version "1.1.0"
@@ -1244,9 +1245,9 @@ jhipster-core@3.0.2:
     lodash "4.17.10"
     winston "2.4.2"
 
-js-yaml@3.11.0:
-  version "3.11.0"
-  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.11.0.tgz#597c1a8bd57152f26d622ce4117851a51f5ebaef"
+js-yaml@3.12.0:
+  version "3.12.0"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.12.0.tgz#eaed656ec8344f10f527c6bfa1b6e2244de167d1"
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
@@ -1394,14 +1395,14 @@ map-visit@^1.0.0:
     object-visit "^1.0.0"
 
 mem-fs-editor@^4.0.0:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/mem-fs-editor/-/mem-fs-editor-4.0.2.tgz#55a79b1e824da631254c4c95ba6366602c77af90"
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/mem-fs-editor/-/mem-fs-editor-4.0.3.tgz#d282a0c4e0d796e9eff9d75661f25f68f389af53"
   dependencies:
     commondir "^1.0.1"
-    deep-extend "^0.5.1"
+    deep-extend "^0.6.0"
     ejs "^2.5.9"
     glob "^7.0.3"
-    globby "^8.0.0"
+    globby "^7.1.1"
     isbinaryfile "^3.0.2"
     mkdirp "^0.5.0"
     multimatch "^2.0.0"
@@ -1527,15 +1528,14 @@ mute-stream@0.0.7:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
 
 nanomatch@^1.2.9:
-  version "1.2.9"
-  resolved "https://registry.yarnpkg.com/nanomatch/-/nanomatch-1.2.9.tgz#879f7150cb2dab7a471259066c104eee6e0fa7c2"
+  version "1.2.13"
+  resolved "https://registry.yarnpkg.com/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
   dependencies:
     arr-diff "^4.0.0"
     array-unique "^0.3.2"
     define-property "^2.0.2"
     extend-shallow "^3.0.2"
     fragment-cache "^0.2.1"
-    is-odd "^2.0.0"
     is-windows "^1.0.2"
     kind-of "^6.0.2"
     object.pick "^1.3.0"
@@ -1744,9 +1744,9 @@ prepend-http@^1.0.1:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/prepend-http/-/prepend-http-1.0.4.tgz#d4f4562b0ce3696e41ac52d0e002e57a635dc6dc"
 
-prettier@1.12.1:
-  version "1.12.1"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.12.1.tgz#c1ad20e803e7749faf905a409d2367e06bbe7325"
+prettier@1.13.7:
+  version "1.13.7"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.13.7.tgz#850f3b8af784a49a6ea2d2eaa7ed1428a34b7281"
 
 pretty-bytes@^4.0.2:
   version "4.0.2"
@@ -2257,8 +2257,8 @@ to-regex@^3.0.1, to-regex@^3.0.2:
     safe-regex "^1.1.0"
 
 tough-cookie@^2.0.0:
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.4.2.tgz#aa9133154518b494efab98a58247bfc38818c00c"
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.4.3.tgz#53f36da3f47783b0925afa06ff9f3b165280f781"
   dependencies:
     psl "^1.1.24"
     punycode "^1.4.1"
@@ -2332,8 +2332,8 @@ util-deprecate@~1.0.1:
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
 
 uuid@^3.0.0, uuid@^3.1.0:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.2.1.tgz#12c528bb9d58d0b9265d9a2f6f0fe8be17ff1f14"
+  version "3.3.2"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.3.2.tgz#1b4af4955eb3077c501c23872fc6513811587131"
 
 validate-npm-package-license@^3.0.1:
   version "3.0.3"
@@ -2420,32 +2420,12 @@ xtend@~4.0.0, xtend@~4.0.1:
   resolved "https://registry.yarnpkg.com/xtend/-/xtend-4.0.1.tgz#a5c6d532be656e23db820efb943a1f04998d63af"
 
 yargs-parser@^10.0.0:
-  version "10.0.0"
-  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-10.0.0.tgz#c737c93de2567657750cb1f2c00be639fd19c994"
+  version "10.1.0"
+  resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-10.1.0.tgz#7202265b89f7e9e9f2e5765e0fe735a905edbaa8"
   dependencies:
     camelcase "^4.1.0"
 
-yeoman-environment@2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/yeoman-environment/-/yeoman-environment-2.1.1.tgz#10a045f7fc4397873764882eae055a33e56ee1c5"
-  dependencies:
-    chalk "^2.1.0"
-    cross-spawn "^6.0.5"
-    debug "^3.1.0"
-    diff "^3.3.1"
-    escape-string-regexp "^1.0.2"
-    globby "^8.0.1"
-    grouped-queue "^0.3.3"
-    inquirer "^5.2.0"
-    is-scoped "^1.0.0"
-    lodash "^4.17.10"
-    log-symbols "^2.1.0"
-    mem-fs "^1.1.0"
-    strip-ansi "^4.0.0"
-    text-table "^0.2.0"
-    untildify "^3.0.2"
-
-yeoman-environment@^2.0.5:
+yeoman-environment@2.3.0, yeoman-environment@^2.0.5:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/yeoman-environment/-/yeoman-environment-2.3.0.tgz#53ea899e50dd64c9510bc1b1c96a810582e42bdb"
   dependencies:
