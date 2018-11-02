@@ -50,6 +50,7 @@ spring:
             hibernate.cache.use_query_cache: false
             hibernate.generate_statistics: true
             hibernate.hbm2ddl.auto: validate
+            hibernate.jdbc.time_zone: UTC
     liquibase:
         contexts: test
     mail:
@@ -66,10 +67,6 @@ spring:
 server:
     port: 10344
     address: localhost
-
-info:
-    project:
-        version: #project.version#
 
 # ===================================================================
 # JHipster specific properties
