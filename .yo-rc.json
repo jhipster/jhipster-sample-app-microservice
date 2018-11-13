@@ -1,6 +1,6 @@
 {
   "generator-jhipster": {
-    "jhipsterVersion": "5.6.1",
+    "jhipsterVersion": "5.7.0",
     "baseName": "jhipsterSampleMicroservice",
     "packageName": "io.github.jhipster.sample",
     "packageFolder": "io/github/jhipster/sample",
@@ -29,6 +29,7 @@
     "clientPackageManager": "npm",
     "cacheProvider": "hazelcast",
     "enableHibernateCache": true,
-    "reactive": false
+    "reactive": false,
+    "otherModules": []
   }
 }
