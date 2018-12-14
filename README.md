@@ -1,5 +1,6 @@
 # jhipsterSampleMicroservice
-This application was generated using JHipster 5.7.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.7.0](https://www.jhipster.tech/documentation-archive/v5.7.0).
+
+This application was generated using JHipster 5.7.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/vundefined](https://www.jhipster.tech/documentation-archive/vundefined).
 
 This is a "microservice" application intended to be part of a microservice architecture, please refer to the [Doing microservices with JHipster][] page of the documentation for more information.
 
@@ -11,10 +12,7 @@ To start your application in the dev profile, simply run:
 
     ./mvnw
 
-
 For further instructions on how to develop with JHipster, have a look at [Using JHipster in development][].
-
-
 
 ## Building for production
 
@@ -26,7 +24,6 @@ To ensure everything worked, run:
 
     java -jar target/*.war
 
-
 Refer to [Using JHipster in production][] for more details.
 
 ## Testing
@@ -34,11 +31,6 @@ Refer to [Using JHipster in production][] for more details.
 To launch your application's tests, run:
 
     ./mvnw clean test
-### Other tests
-
-Performance tests are run by [Gatling][] and written in Scala. They're located in [src/test/gatling](src/test/gatling).
-
-To use those tests, you must install Gatling from [https://gatling.io/](https://gatling.io/).
 
 For more information, refer to the [Running tests page][].
 
@@ -73,7 +65,7 @@ To stop it and remove the container, run:
 You can also fully dockerize your application and all the services that it depends on.
 To achieve this, first build a docker image of your app by running:
 
-    ./mvnw package -Pprod jib:dockerBuild
+    ./mvnw package -Pprod verify jib:dockerBuild
 
 Then run:
 
@@ -85,15 +77,13 @@ For more information refer to [Using Docker and Docker-Compose][], this page als
 
 To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
 
-[JHipster Homepage and latest documentation]: https://www.jhipster.tech
-[JHipster 5.7.0 archive]: https://www.jhipster.tech/documentation-archive/v5.7.0
-[Doing microservices with JHipster]: https://www.jhipster.tech/documentation-archive/v5.7.0/microservices-architecture/
-[Using JHipster in development]: https://www.jhipster.tech/documentation-archive/v5.7.0/development/
-[Service Discovery and Configuration with the JHipster-Registry]: https://www.jhipster.tech/documentation-archive/v5.7.0/microservices-architecture/#jhipster-registry
-[Using Docker and Docker-Compose]: https://www.jhipster.tech/documentation-archive/v5.7.0/docker-compose
-[Using JHipster in production]: https://www.jhipster.tech/documentation-archive/v5.7.0/production/
-[Running tests page]: https://www.jhipster.tech/documentation-archive/v5.7.0/running-tests/
-[Code quality page]: https://www.jhipster.tech/documentation-archive/v5.7.0/code-quality/
-[Setting up Continuous Integration]: https://www.jhipster.tech/documentation-archive/v5.7.0/setting-up-ci/
-
-[Gatling]: http://gatling.io/
+[jhipster homepage and latest documentation]: https://www.jhipster.tech
+[jhipster 5.7.1 archive]: https://www.jhipster.tech/documentation-archive/vundefined
+[doing microservices with jhipster]: https://www.jhipster.tech/documentation-archive/vundefined/microservices-architecture/
+[using jhipster in development]: https://www.jhipster.tech/documentation-archive/vundefined/development/
+[service discovery and configuration with the jhipster-registry]: https://www.jhipster.tech/documentation-archive/vundefined/microservices-architecture/#jhipster-registry
+[using docker and docker-compose]: https://www.jhipster.tech/documentation-archive/vundefined/docker-compose
+[using jhipster in production]: https://www.jhipster.tech/documentation-archive/vundefined/production/
+[running tests page]: https://www.jhipster.tech/documentation-archive/vundefined/running-tests/
+[code quality page]: https://www.jhipster.tech/documentation-archive/vundefined/code-quality/
+[setting up continuous integration]: https://www.jhipster.tech/documentation-archive/vundefined/setting-up-ci/
