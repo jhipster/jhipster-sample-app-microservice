@@ -1,6 +1,6 @@
 {
   "generator-jhipster": {
-    "jhipsterVersion": "5.7.2",
+    "jhipsterVersion": "5.8.0",
     "baseName": "jhipsterSampleMicroservice",
     "packageName": "io.github.jhipster.sample",
     "packageFolder": "io/github/jhipster/sample",
@@ -30,6 +30,8 @@
     "cacheProvider": "hazelcast",
     "enableHibernateCache": true,
     "reactive": false,
-    "otherModules": []
+    "otherModules": [],
+    "entitySuffix": "",
+    "dtoSuffix": "DTO"
   }
 }
