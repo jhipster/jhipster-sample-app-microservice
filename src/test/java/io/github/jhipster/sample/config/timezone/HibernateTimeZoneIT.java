@@ -3,14 +3,12 @@ package io.github.jhipster.sample.config.timezone;
 import io.github.jhipster.sample.JhipsterSampleMicroserviceApp;
 import io.github.jhipster.sample.repository.timezone.DateTimeWrapper;
 import io.github.jhipster.sample.repository.timezone.DateTimeWrapperRepository;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.*;
@@ -20,11 +18,10 @@ import static java.lang.String.format;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Unit tests for the UTC Hibernate configuration.
+ * Integration tests for the UTC Hibernate configuration.
  */
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = JhipsterSampleMicroserviceApp.class)
-public class HibernateTimeZoneTest {
+public class HibernateTimeZoneIT {
 
     @Autowired
     private DateTimeWrapperRepository dateTimeWrapperRepository;
@@ -36,7 +33,7 @@ public class HibernateTimeZoneTest {
     private DateTimeFormatter timeFormatter;
     private DateTimeFormatter dateFormatter;
 
-    @Before
+    @BeforeEach
     public void setup() {
         dateTimeWrapper = new DateTimeWrapper();
         dateTimeWrapper.setInstant(Instant.parse("2014-11-12T05:50:00.0Z"));
