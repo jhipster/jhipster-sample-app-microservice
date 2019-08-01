@@ -1,6 +1,6 @@
 {
   "generator-jhipster": {
-    "jhipsterVersion": "6.1.2",
+    "jhipsterVersion": "6.2.0",
     "baseName": "jhipsterSampleMicroservice",
     "packageName": "io.github.jhipster.sample",
     "packageFolder": "io/github/jhipster/sample",
@@ -32,6 +32,7 @@
     "reactive": false,
     "otherModules": [],
     "entitySuffix": "",
-    "dtoSuffix": "DTO"
+    "dtoSuffix": "DTO",
+    "blueprints": []
   }
 }

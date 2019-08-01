@@ -63,12 +63,12 @@ class BankAccountGatlingTest extends Simulation {
         .pause(10)
         .repeat(2) {
             exec(http("Get all bankAccounts")
-            .get("/jhipstersamplemicroservice/api/bank-accounts")
+            .get("/services/jhipstersamplemicroservice/api/bank-accounts")
             .headers(headers_http_authenticated)
             .check(status.is(200)))
             .pause(10 seconds, 20 seconds)
             .exec(http("Create new bankAccount")
-            .post("/jhipstersamplemicroservice/api/bank-accounts")
+            .post("/services/jhipstersamplemicroservice/api/bank-accounts")
             .headers(headers_http_authenticated)
             .body(StringBody("""{
                 "id":null
@@ -80,12 +80,12 @@ class BankAccountGatlingTest extends Simulation {
             .pause(10)
             .repeat(5) {
                 exec(http("Get created bankAccount")
-                .get("/jhipstersamplemicroservice${new_bankAccount_url}")
+                .get("/services/jhipstersamplemicroservice${new_bankAccount_url}")
                 .headers(headers_http_authenticated))
                 .pause(10)
             }
             .exec(http("Delete created bankAccount")
-            .delete("/jhipstersamplemicroservice${new_bankAccount_url}")
+            .delete("/services/jhipstersamplemicroservice${new_bankAccount_url}")
             .headers(headers_http_authenticated))
             .pause(10)
         }

@@ -1,7 +1,7 @@
 version: '2'
 services:
   jhipstersamplemicroservice-postgresql:
-    image: postgres:11.3
+    image: postgres:11.4
     # volumes:
     #     - ~/volumes/jhipster/jhipsterSampleMicroservice/postgresql/:/var/lib/postgresql/data/
     environment:
