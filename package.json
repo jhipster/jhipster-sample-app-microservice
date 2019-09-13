@@ -8,7 +8,8 @@
     "node_modules"
   ],
   "devDependencies": {
-    "generator-jhipster": "6.2.0"
+    "generator-jhipster": "6.3.0",
+    "@openapitools/openapi-generator-cli": "0.0.19-4.1.2"
   },
   "engines": {
     "node": ">=8.9.0"
