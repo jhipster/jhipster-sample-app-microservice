@@ -1,6 +1,6 @@
 version: '2'
 services:
   jhipstersamplemicroservice-hazelcast-management-center:
-    image: hazelcast/management-center:3.12.5
+    image: hazelcast/management-center:3.12.6
     ports:
       - 8180:8080
