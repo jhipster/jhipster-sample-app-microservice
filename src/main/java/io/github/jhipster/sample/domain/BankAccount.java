@@ -1,4 +1,5 @@
 package io.github.jhipster.sample.domain;
+
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
