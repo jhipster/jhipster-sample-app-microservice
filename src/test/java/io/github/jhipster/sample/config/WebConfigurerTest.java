@@ -54,6 +54,7 @@ public class WebConfigurerTest {
         env.setActiveProfiles(JHipsterConstants.SPRING_PROFILE_PRODUCTION);
         webConfigurer.onStartup(servletContext);
 
+
         verify(servletContext, never()).addServlet(eq("H2Console"), any(WebServlet.class));
     }
 
@@ -61,6 +62,7 @@ public class WebConfigurerTest {
     public void testStartUpDevServletContext() throws ServletException {
         env.setActiveProfiles(JHipsterConstants.SPRING_PROFILE_DEVELOPMENT);
         webConfigurer.onStartup(servletContext);
+
 
         verify(servletContext).addServlet(eq("H2Console"), any(WebServlet.class));
     }
