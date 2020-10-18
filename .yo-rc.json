@@ -1,6 +1,6 @@
 {
   "generator-jhipster": {
-    "jhipsterVersion": "6.10.3",
+    "jhipsterVersion": "6.10.4",
     "baseName": "jhipsterSampleMicroservice",
     "packageName": "io.github.jhipster.sample",
     "packageFolder": "io/github/jhipster/sample",
