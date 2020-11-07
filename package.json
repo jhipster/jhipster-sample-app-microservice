@@ -9,7 +9,7 @@
   ],
   "devDependencies": {
     "@openapitools/openapi-generator-cli": "1.0.13-4.3.1",
-    "generator-jhipster": "6.10.4",
+    "generator-jhipster": "6.10.5",
     "husky": "4.2.5",
     "lint-staged": "8.2.1",
     "prettier": "2.1.2"

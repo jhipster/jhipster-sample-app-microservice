@@ -1,6 +1,6 @@
 # jhipsterSampleMicroservice
 
-This application was generated using JHipster 6.10.4, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.10.4](https://www.jhipster.tech/documentation-archive/v6.10.4).
+This application was generated using JHipster 6.10.5, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.10.5](https://www.jhipster.tech/documentation-archive/v6.10.5).
 
 This is a "microservice" application intended to be part of a microservice architecture, please refer to the [Doing microservices with JHipster][] page of the documentation for more information.
 
@@ -121,12 +121,12 @@ For more information refer to [Using Docker and Docker-Compose][], this page als
 To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
 
 [jhipster homepage and latest documentation]: https://www.jhipster.tech
-[jhipster 6.10.4 archive]: https://www.jhipster.tech/documentation-archive/v6.10.4
-[doing microservices with jhipster]: https://www.jhipster.tech/documentation-archive/v6.10.4/microservices-architecture/
-[using jhipster in development]: https://www.jhipster.tech/documentation-archive/v6.10.4/development/
-[service discovery and configuration with the jhipster-registry]: https://www.jhipster.tech/documentation-archive/v6.10.4/microservices-architecture/#jhipster-registry
-[using docker and docker-compose]: https://www.jhipster.tech/documentation-archive/v6.10.4/docker-compose
-[using jhipster in production]: https://www.jhipster.tech/documentation-archive/v6.10.4/production/
-[running tests page]: https://www.jhipster.tech/documentation-archive/v6.10.4/running-tests/
-[code quality page]: https://www.jhipster.tech/documentation-archive/v6.10.4/code-quality/
-[setting up continuous integration]: https://www.jhipster.tech/documentation-archive/v6.10.4/setting-up-ci/
+[jhipster 6.10.5 archive]: https://www.jhipster.tech/documentation-archive/v6.10.5
+[doing microservices with jhipster]: https://www.jhipster.tech/documentation-archive/v6.10.5/microservices-architecture/
+[using jhipster in development]: https://www.jhipster.tech/documentation-archive/v6.10.5/development/
+[service discovery and configuration with the jhipster-registry]: https://www.jhipster.tech/documentation-archive/v6.10.5/microservices-architecture/#jhipster-registry
+[using docker and docker-compose]: https://www.jhipster.tech/documentation-archive/v6.10.5/docker-compose
+[using jhipster in production]: https://www.jhipster.tech/documentation-archive/v6.10.5/production/
+[running tests page]: https://www.jhipster.tech/documentation-archive/v6.10.5/running-tests/
+[code quality page]: https://www.jhipster.tech/documentation-archive/v6.10.5/code-quality/
+[setting up continuous integration]: https://www.jhipster.tech/documentation-archive/v6.10.5/setting-up-ci/
