@@ -19,5 +19,8 @@
   "entityTableName": "bank_account",
   "pagination": "no",
   "microserviceName": "jhipsterSampleMicroservice",
-  "searchEngine": false
+  "searchEngine": false,
+  "clientRootFolder": "jhipsterSampleMicroservice",
+  "databaseType": "sql",
+  "name": "BankAccount"
 }

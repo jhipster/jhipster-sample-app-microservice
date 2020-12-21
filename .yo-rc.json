@@ -1,6 +1,6 @@
 {
   "generator-jhipster": {
-    "jhipsterVersion": "6.10.5",
+    "jhipsterVersion": "7.0.0-beta.0",
     "baseName": "jhipsterSampleMicroservice",
     "packageName": "io.github.jhipster.sample",
     "packageFolder": "io/github/jhipster/sample",
@@ -33,6 +33,17 @@
     "dtoSuffix": "DTO",
     "blueprints": [],
     "embeddableLaunchScript": false,
-    "creationTimestamp": 1577001758367
+    "creationTimestamp": 1577001758367,
+    "skipServer": false,
+    "skipCheckLengthOfIdentifier": false,
+    "skipFakeData": false,
+    "pages": [],
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "withAdminUi": true,
+    "nativeLanguage": "en",
+    "languages": ["en", "fr"],
+    "entities": ["BankAccount"]
   }
 }

@@ -77,6 +77,13 @@ management:
     git:
       mode: full
   health:
+    group:
+      liveness:
+        include: livenessState
+      readiness:
+        include: readinessState,datasource
+    probes:
+      enabled: true
     mail:
       enabled: false # When using the MailService, configure an SMTP server and set this to true
   metrics:
@@ -188,7 +195,7 @@ jhipster:
   #     max-age: 1800
   mail:
     from: jhipsterSampleMicroservice@localhost
-  swagger:
+  api-docs:
     default-include-pattern: /api/.*
     title: jhipsterSampleMicroservice API
     description: jhipsterSampleMicroservice API documentation

@@ -1,13 +1,11 @@
 package io.github.jhipster.sample.domain;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import javax.persistence.*;
-import javax.validation.constraints.*;
-
 import java.io.Serializable;
 import java.math.BigDecimal;
+import javax.persistence.*;
+import javax.validation.constraints.*;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 /**
  * A BankAccount.
@@ -41,8 +39,13 @@ public class BankAccount implements Serializable {
         this.id = id;
     }
 
+    public BankAccount id(Long id) {
+        this.id = id;
+        return this;
+    }
+
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public BankAccount name(String name) {
@@ -55,7 +58,7 @@ public class BankAccount implements Serializable {
     }
 
     public BigDecimal getBalance() {
-        return balance;
+        return this.balance;
     }
 
     public BankAccount balance(BigDecimal balance) {
@@ -66,6 +69,7 @@ public class BankAccount implements Serializable {
     public void setBalance(BigDecimal balance) {
         this.balance = balance;
     }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -81,7 +85,8 @@ public class BankAccount implements Serializable {
 
     @Override
     public int hashCode() {
-        return 31;
+        // see https://vladmihalcea.com/how-to-implement-equals-and-hashcode-using-the-jpa-entity-identifier/
+        return getClass().hashCode();
     }
 
     // prettier-ignore
