@@ -44,10 +44,10 @@ feign:
   hystrix:
     enabled: true
   # client:
-  #     config:
-  #         default:
-  #             connectTimeout: 5000
-  #             readTimeout: 5000
+  #   config:
+  #     default:
+  #       connectTimeout: 5000
+  #       readTimeout: 5000
 
 # See https://github.com/Netflix/Hystrix/wiki/Configuration
 hystrix:
@@ -58,7 +58,7 @@ hystrix:
           strategy: SEMAPHORE
           # See https://github.com/spring-cloud/spring-cloud-netflix/issues/1330
           # thread:
-          #     timeoutInMilliseconds: 10000
+          #   timeoutInMilliseconds: 10000
   shareSecurityContext: true
 
 management:
@@ -66,7 +66,8 @@ management:
     web:
       base-path: /management
       exposure:
-        include: ['configprops', 'env', 'health', 'info', 'jhimetrics', 'logfile', 'loggers', 'prometheus', 'threaddump']
+        include:
+          ['configprops', 'env', 'health', 'info', 'jhimetrics', 'logfile', 'loggers', 'prometheus', 'threaddump', 'caches', 'liquibase']
   endpoint:
     health:
       show-details: when_authorized
@@ -187,12 +188,12 @@ jhipster:
     name: 'jhipsterSampleMicroserviceApp'
   # By default CORS is disabled. Uncomment to enable.
   # cors:
-  #     allowed-origins: "*"
-  #     allowed-methods: "*"
-  #     allowed-headers: "*"
-  #     exposed-headers: "Authorization,Link,X-Total-Count"
-  #     allow-credentials: true
-  #     max-age: 1800
+  #   allowed-origins: "*"
+  #   allowed-methods: "*"
+  #   allowed-headers: "*"
+  #   exposed-headers: "Authorization,Link,X-Total-Count"
+  #   allow-credentials: true
+  #   max-age: 1800
   mail:
     from: jhipsterSampleMicroservice@localhost
   api-docs:

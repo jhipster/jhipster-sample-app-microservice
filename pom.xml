@@ -40,13 +40,13 @@
         <profile.tls />
 
         <!-- Dependency versions -->
-        <jhipster-dependencies.version>7.0.0-beta.0</jhipster-dependencies.version>
+        <jhipster-dependencies.version>7.0.0-beta.1</jhipster-dependencies.version>
         <!-- The spring-boot version should match the one managed by
         https://mvnrepository.com/artifact/tech.jhipster/jhipster-dependencies/${jhipster-dependencies.version} -->
-        <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
+        <spring-boot.version>2.3.8.RELEASE</spring-boot.version>
         <!-- The hibernate version should match the one managed by
         https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/${spring-boot.version} -->
-        <hibernate.version>5.4.25.Final</hibernate.version>
+        <hibernate.version>5.4.27.Final</hibernate.version>
         <!-- The javassist version should match the one managed by
         https://mvnrepository.com/artifact/org.hibernate/hibernate-core/${hibernate.version} -->
         <javassist.version>3.27.0-GA</javassist.version>
@@ -57,7 +57,7 @@
         <h2.version>1.4.200</h2.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
         <jaxb-runtime.version>2.3.3</jaxb-runtime.version>
-        <archunit-junit5.version>0.14.1</archunit-junit5.version>
+        <archunit-junit5.version>0.15.0</archunit-junit5.version>
         <mapstruct.version>1.4.1.Final</mapstruct.version>
         <!-- Plugin versions -->
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
@@ -71,14 +71,14 @@
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-war-plugin.version>3.3.1</maven-war-plugin.version>
         <maven-checkstyle.version>3.1.1</maven-checkstyle.version>
-        <checkstyle.version>8.38</checkstyle.version>
+        <checkstyle.version>8.39</checkstyle.version>
         <spring-nohttp-checkstyle.version>0.0.5.RELEASE</spring-nohttp-checkstyle.version>
         <git-commit-id-plugin.version>4.0.3</git-commit-id-plugin.version>
         <jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
-        <jib-maven-plugin.version>2.7.0</jib-maven-plugin.version>
+        <jib-maven-plugin.version>2.7.1</jib-maven-plugin.version>
         <lifecycle-mapping.version>1.0.0</lifecycle-mapping.version>
         <properties-maven-plugin.version>1.0.0</properties-maven-plugin.version>
-        <sonar-maven-plugin.version>3.7.0.1746</sonar-maven-plugin.version>
+        <sonar-maven-plugin.version>3.8.0.2131</sonar-maven-plugin.version>
         <jacoco.utReportFolder>${project.build.directory}/jacoco/test</jacoco.utReportFolder>
         <jacoco.utReportFile>${jacoco.utReportFolder}/test.exec</jacoco.utReportFile>
         <jacoco.itReportFolder>${project.build.directory}/jacoco/integrationTest</jacoco.itReportFolder>
