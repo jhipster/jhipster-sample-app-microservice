@@ -26,6 +26,9 @@ spring:
     #active: testcontainers
   application:
     name: jhipsterSampleMicroservice
+  cloud:
+    config:
+      enabled: false
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:h2:mem:jhipstersamplemicroservice;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
