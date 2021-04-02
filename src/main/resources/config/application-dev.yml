@@ -55,6 +55,7 @@ spring:
       auto-commit: false
   h2:
     console:
+      # disable spring boot built-in h2-console since we start it manually with correct configuration
       enabled: false
   jpa:
     database-platform: tech.jhipster.domain.util.FixedH2Dialect
@@ -94,7 +95,7 @@ jhipster:
   # CORS is disabled by default on microservices, as you should access them through a gateway.
   # If you want to enable it, please uncomment the configuration below.
   # cors:
-  #   allowed-origins: "*"
+  #   allowed-origins: "http://localhost:9000"
   #   allowed-methods: "*"
   #   allowed-headers: "*"
   #   exposed-headers: "Authorization,Link,X-Total-Count"
