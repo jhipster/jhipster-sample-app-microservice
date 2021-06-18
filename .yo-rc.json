@@ -1,6 +1,6 @@
 {
   "generator-jhipster": {
-    "jhipsterVersion": "7.0.1",
+    "jhipsterVersion": "7.1.0",
     "baseName": "jhipsterSampleMicroservice",
     "packageName": "io.github.jhipster.sample",
     "packageFolder": "io/github/jhipster/sample",
@@ -41,7 +41,7 @@
     "clientFramework": "angularX",
     "clientTheme": "none",
     "clientThemeVariant": "",
-    "withAdminUi": true,
+    "withAdminUi": false,
     "nativeLanguage": "en",
     "languages": ["en", "fr"],
     "entities": ["BankAccount"]
