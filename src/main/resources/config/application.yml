@@ -39,26 +39,13 @@ eureka:
       git-branch: ${git.branch:}
       context-path: ${server.servlet.context-path:}
 feign:
-  hystrix:
+  circuitbreaker:
     enabled: true
   # client:
   #   config:
   #     default:
   #       connectTimeout: 5000
   #       readTimeout: 5000
-
-# See https://github.com/Netflix/Hystrix/wiki/Configuration
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          strategy: SEMAPHORE
-          # See https://github.com/spring-cloud/spring-cloud-netflix/issues/1330
-          # thread:
-          #   timeoutInMilliseconds: 10000
-  shareSecurityContext: true
-
 management:
   endpoints:
     web:
@@ -82,7 +69,7 @@ management:
       liveness:
         include: livenessState
       readiness:
-        include: readinessState,datasource
+        include: readinessState,db
     mail:
       enabled: false # When using the MailService, configure an SMTP server and set this to true
   metrics:

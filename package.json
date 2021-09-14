@@ -7,10 +7,12 @@
   "scripts": {
     "prettier:check": "prettier --check \"{,src/**/}*.{md,json,yml,html,java}\"",
     "prettier:format": "prettier --write \"{,src/**/}*.{md,json,yml,html,java}\"",
+    "prepare": "husky install",
     "docker:db:up": "docker-compose -f src/main/docker/postgresql.yml up -d",
     "docker:db:down": "docker-compose -f src/main/docker/postgresql.yml down -v --remove-orphans",
     "docker:jhipster-registry:up": "docker-compose -f src/main/docker/jhipster-registry.yml up -d",
     "docker:jhipster-registry:down": "docker-compose -f src/main/docker/jhipster-registry.yml down -v --remove-orphans",
+    "docker:app:up": "docker-compose -f src/main/docker/app.yml up -d jhipster-sample-microservice-app",
     "docker:others:await": "echo \"Waiting for jhipster-registry to start\" && wait-on http-get://localhost:8761/management/health && echo \"jhipster-registry started\"",
     "predocker:others:up": "",
     "docker:others:up": "npm run docker:jhipster-registry:up",
@@ -26,8 +28,10 @@
     "java:jar": "./mvnw -ntp verify -DskipTests --batch-mode",
     "java:war": "./mvnw -ntp verify -DskipTests --batch-mode -Pwar",
     "java:docker": "./mvnw -ntp verify -DskipTests jib:dockerBuild",
+    "java:docker:arm64": "npm run java:docker -- -Djib-maven-plugin.architecture=arm64",
     "backend:unit:test": "./mvnw -ntp -P-webapp verify --batch-mode -Dlogging.level.ROOT=OFF -Dlogging.level.org.zalando=OFF -Dlogging.level.tech.jhipster=OFF -Dlogging.level.io.github.jhipster.sample=OFF -Dlogging.level.org.springframework=OFF -Dlogging.level.org.springframework.web=OFF -Dlogging.level.org.springframework.security=OFF",
     "backend:build-cache": "./mvnw dependency:go-offline",
+    "backend:debug": "./mvnw -Dspring-boot.run.jvmArguments=\"-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000\"",
     "java:jar:dev": "npm run java:jar -- -Pdev,webapp",
     "java:jar:prod": "npm run java:jar -- -Pprod",
     "java:war:dev": "npm run java:war -- -Pdev,webapp",
@@ -46,15 +50,15 @@
     "packaging": "jar"
   },
   "devDependencies": {
-    "generator-jhipster": "7.1.0",
-    "husky": "4.3.8",
-    "lint-staged": "11.0.0",
-    "prettier": "2.3.1",
-    "prettier-plugin-java": "1.2.0",
+    "generator-jhipster": "7.2.0",
+    "husky": "7.0.2",
+    "lint-staged": "11.1.2",
+    "prettier": "2.4.0",
+    "prettier-plugin-java": "1.4.0",
     "prettier-plugin-packagejson": "2.2.11"
   },
   "engines": {
-    "node": ">=14.17.1"
+    "node": ">=14.17.6"
   },
   "cacheDirectories": [
     "node_modules"
