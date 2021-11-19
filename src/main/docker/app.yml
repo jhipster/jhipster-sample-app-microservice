@@ -13,7 +13,7 @@ services:
       - SPRING_LIQUIBASE_URL=jdbc:postgresql://jhipstersamplemicroservice-postgresql:5432/jhipsterSampleMicroservice
       - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
   jhipstersamplemicroservice-postgresql:
-    image: postgres:13.4
+    image: postgres:13.5
     # volumes:
     #   - ~/volumes/jhipster/jhipsterSampleMicroservice/postgresql/:/var/lib/postgresql/data/
     environment:
