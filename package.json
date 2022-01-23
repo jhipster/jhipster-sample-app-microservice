@@ -50,11 +50,11 @@
     "packaging": "jar"
   },
   "devDependencies": {
-    "generator-jhipster": "7.5.0",
+    "generator-jhipster": "7.6.0",
     "husky": "7.0.4",
-    "lint-staged": "12.1.4",
+    "lint-staged": "12.2.2",
     "prettier": "2.5.1",
-    "prettier-plugin-java": "1.6.0",
+    "prettier-plugin-java": "1.6.1",
     "prettier-plugin-packagejson": "2.2.15"
   },
   "engines": {

@@ -1,6 +1,9 @@
 {
-  "fluentMethods": true,
-  "relationships": [],
+  "changelogDate": "20161016121722",
+  "clientRootFolder": "jhipsterSampleMicroservice",
+  "databaseType": "sql",
+  "dto": "no",
+  "entityTableName": "bank_account",
   "fields": [
     {
       "fieldName": "name",
@@ -13,14 +16,11 @@
       "fieldValidateRules": ["required"]
     }
   ],
-  "changelogDate": "20161016121722",
-  "dto": "no",
-  "service": "no",
-  "entityTableName": "bank_account",
-  "pagination": "no",
+  "fluentMethods": true,
   "microserviceName": "jhipsterSampleMicroservice",
+  "name": "BankAccount",
+  "pagination": "no",
+  "relationships": [],
   "searchEngine": false,
-  "clientRootFolder": "jhipsterSampleMicroservice",
-  "databaseType": "sql",
-  "name": "BankAccount"
+  "service": "no"
 }

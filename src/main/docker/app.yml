@@ -13,7 +13,7 @@ services:
       - SPRING_LIQUIBASE_URL=jdbc:postgresql://jhipstersamplemicroservice-postgresql:5432/jhipsterSampleMicroservice
       - JHIPSTER_SLEEP=30 # gives time for other services to boot before the application
   jhipstersamplemicroservice-postgresql:
-    image: postgres:13.5
+    image: postgres:14.1
     # volumes:
     #   - ~/volumes/jhipster/jhipsterSampleMicroservice/postgresql/:/var/lib/postgresql/data/
     environment:
@@ -25,7 +25,7 @@ services:
     ports:
       - 127.0.0.1:5432:5432
   jhipster-registry:
-    image: jhipster/jhipster-registry:v7.1.0
+    image: jhipster/jhipster-registry:v7.2.0
     volumes:
       - ./central-server-config:/central-config
     # When run with the "dev" Spring profile, the JHipster Registry will
