@@ -13,13 +13,6 @@
     <description>Description for jhipsterSampleMicroservice</description>
 
     <repositories>
-        <repository>
-            <id>ossrh-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-        </repository>
         <!-- jhipster-needle-maven-repository -->
     </repositories>
 
@@ -46,9 +39,10 @@
         <profile.no-liquibase />
         <profile.api-docs />
         <profile.tls />
+        <profile.e2e />
 
         <!-- Dependency versions -->
-        <jhipster-dependencies.version>7.6.1-SNAPSHOT</jhipster-dependencies.version>
+        <jhipster-dependencies.version>7.7.0</jhipster-dependencies.version>
         <!-- The spring-boot version should match the one managed by
         https://mvnrepository.com/artifact/tech.jhipster/jhipster-dependencies/${jhipster-dependencies.version} -->
         <spring-boot.version>2.6.3</spring-boot.version>
@@ -66,18 +60,19 @@
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <!-- Plugin versions -->
         <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
-        <maven-site-plugin.version>3.10.0</maven-site-plugin.version>
+        <maven-site-plugin.version>3.11.0</maven-site-plugin.version>
         <maven-compiler-plugin.version>3.9.0</maven-compiler-plugin.version>
-        <maven-javadoc-plugin.version>3.3.1</maven-javadoc-plugin.version>
+        <maven-javadoc-plugin.version>3.3.2</maven-javadoc-plugin.version>
         <maven-eclipse-plugin.version>2.10</maven-eclipse-plugin.version>
-        <maven-enforcer-plugin.version>3.0.0</maven-enforcer-plugin.version>
+        <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
         <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
+        <maven-jar-plugin.version>3.2.2</maven-jar-plugin.version>
         <maven-idea-plugin.version>2.2.1</maven-idea-plugin.version>
         <maven-resources-plugin.version>3.2.0</maven-resources-plugin.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-war-plugin.version>3.3.2</maven-war-plugin.version>
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
-        <checkstyle.version>9.2.1</checkstyle.version>
+        <checkstyle.version>9.3</checkstyle.version>
         <nohttp-checkstyle.version>0.0.10</nohttp-checkstyle.version>
         <git-commit-id-plugin.version>5.0.0</git-commit-id-plugin.version>
         <modernizer-maven-plugin.version>2.3.0</modernizer-maven-plugin.version>
@@ -298,6 +293,10 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
         <dependency>
@@ -309,8 +308,8 @@
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-data</artifactId>
         </dependency>
         <dependency>
             <groupId>io.micrometer</groupId>
@@ -775,6 +774,11 @@
                     </executions>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+               </plugin>
+                <plugin>
                     <groupId>org.sonarsource.scanner.maven</groupId>
                     <artifactId>sonar-maven-plugin</artifactId>
                     <version>${sonar-maven-plugin.version}</version>
@@ -945,7 +949,7 @@
             </build>
             <properties>
                 <!-- default Spring profiles -->
-                <spring.profiles.active>prod${profile.api-docs}${profile.tls}${profile.no-liquibase}</spring.profiles.active>
+                <spring.profiles.active>prod${profile.api-docs}${profile.tls}${profile.e2e}${profile.no-liquibase}</spring.profiles.active>
             </properties>
         </profile>
         <profile>
@@ -967,7 +971,11 @@
             <dependencies>
                 <dependency>
                     <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-starter-zipkin</artifactId>
+                    <artifactId>spring-cloud-starter-sleuth</artifactId>
+                </dependency>
+                <dependency>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-sleuth-zipkin</artifactId>
                 </dependency>
             </dependencies>
         </profile>

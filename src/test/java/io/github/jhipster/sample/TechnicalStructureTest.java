@@ -18,7 +18,7 @@ class TechnicalStructureTest {
         .layer("Config").definedBy("..config..")
         .layer("Client").definedBy("..client..")
         .layer("Web").definedBy("..web..")
-        .layer("Service").definedBy("..service..")
+        .optionalLayer("Service").definedBy("..service..")
         .layer("Security").definedBy("..security..")
         .layer("Persistence").definedBy("..repository..")
         .layer("Domain").definedBy("..domain..")
@@ -27,9 +27,13 @@ class TechnicalStructureTest {
         .whereLayer("Client").mayNotBeAccessedByAnyLayer()
         .whereLayer("Web").mayOnlyBeAccessedByLayers("Config")
         .whereLayer("Service").mayOnlyBeAccessedByLayers("Web", "Config")
-        .whereLayer("Security").mayOnlyBeAccessedByLayers("Client", "Web", "Service", "Config")
+        .whereLayer("Security").mayOnlyBeAccessedByLayers("Config", "Client", "Service", "Web")
         .whereLayer("Persistence").mayOnlyBeAccessedByLayers("Service", "Security", "Web", "Config")
         .whereLayer("Domain").mayOnlyBeAccessedByLayers("Persistence", "Service", "Security", "Web", "Config")
 
-        .ignoreDependency(belongToAnyOf(JhipsterSampleMicroserviceApp.class), alwaysTrue());
+        .ignoreDependency(belongToAnyOf(JhipsterSampleMicroserviceApp.class), alwaysTrue())
+        .ignoreDependency(alwaysTrue(), belongToAnyOf(
+            io.github.jhipster.sample.config.Constants.class,
+            io.github.jhipster.sample.config.ApplicationProperties.class
+        ));
 }
