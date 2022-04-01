@@ -22,9 +22,9 @@
     "ci:e2e:teardown": "npm run ci:e2e:teardown:docker",
     "ci:e2e:teardown:docker": "npm run docker:db:down --if-present && npm run docker:others:down && docker ps -a",
     "docker:app:up": "docker-compose -f src/main/docker/app.yml up -d",
-    "docker:db:down": "docker-compose -f src/main/docker/postgresql.yml down -v --remove-orphans",
+    "docker:db:down": "docker-compose -f src/main/docker/postgresql.yml down -v",
     "docker:db:up": "docker-compose -f src/main/docker/postgresql.yml up -d",
-    "docker:jhipster-registry:down": "docker-compose -f src/main/docker/jhipster-registry.yml down -v --remove-orphans",
+    "docker:jhipster-registry:down": "docker-compose -f src/main/docker/jhipster-registry.yml down -v",
     "docker:jhipster-registry:up": "docker-compose -f src/main/docker/jhipster-registry.yml up -d",
     "docker:others:await": "echo \"Waiting for jhipster-registry to start\" && wait-on -t 180000 http-get://localhost:8761/management/health && echo \"jhipster-registry started\"",
     "docker:others:down": "npm run docker:jhipster-registry:down",
@@ -50,12 +50,12 @@
     "packaging": "jar"
   },
   "devDependencies": {
-    "generator-jhipster": "7.7.0",
+    "generator-jhipster": "7.8.0",
     "husky": "7.0.4",
-    "lint-staged": "12.3.4",
-    "prettier": "2.5.1",
+    "lint-staged": "12.3.7",
+    "prettier": "2.6.1",
     "prettier-plugin-java": "1.6.1",
-    "prettier-plugin-packagejson": "2.2.15"
+    "prettier-plugin-packagejson": "2.2.17"
   },
   "engines": {
     "node": ">=16.14.0"

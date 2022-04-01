@@ -29,6 +29,7 @@ spring:
   cloud:
     config:
       enabled: false
+
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:h2:mem:jhipstersamplemicroservice;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
@@ -63,7 +64,6 @@ spring:
     host: localhost
   main:
     allow-bean-definition-overriding: true
-    allow-circular-references: true
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
@@ -79,7 +79,7 @@ spring:
     scheduling:
       thread-name-prefix: jhipster-sample-microservice-scheduling-
       pool:
-        size: 1
+        size: 20
   thymeleaf:
     mode: HTML
 
@@ -92,7 +92,6 @@ server:
 #
 # Full reference is available at: https://www.jhipster.tech/common-application-properties/
 # ===================================================================
-
 jhipster:
   clientApp:
     name: 'jhipsterSampleMicroserviceApp'
