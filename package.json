@@ -42,8 +42,8 @@
     "java:war:dev": "npm run java:war -- -Pdev,webapp",
     "java:war:prod": "npm run java:war -- -Pprod",
     "prepare": "husky install",
-    "prettier:check": "prettier --check \"{,src/**/}*.{md,json,yml,html,java}\"",
-    "prettier:format": "prettier --write \"{,src/**/}*.{md,json,yml,html,java}\""
+    "prettier:check": "prettier --check \"{,src/**/,.blueprint/**/}*.{md,json,yml,html,java}\"",
+    "prettier:format": "prettier --write \"{,src/**/,.blueprint/**/}*.{md,json,yml,html,java}\""
   },
   "config": {
     "backend_port": "8081",
@@ -51,7 +51,7 @@
     "packaging": "jar"
   },
   "devDependencies": {
-    "generator-jhipster": "7.9.0",
+    "generator-jhipster": "7.9.3",
     "husky": "7.0.4",
     "lint-staged": "13.0.3",
     "prettier": "2.7.1",
@@ -59,7 +59,7 @@
     "prettier-plugin-packagejson": "2.2.18"
   },
   "engines": {
-    "node": ">=16.16.0"
+    "node": ">=16.17.0"
   },
   "cacheDirectories": [
     "node_modules"

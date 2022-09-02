@@ -22,10 +22,10 @@
   },
 
   // Add the IDs of extensions you want installed when the container is created.
-  "extensions": ["angular.ng-template", "vscjava.vscode-java-pack", "pivotal.vscode-boot-dev-pack", "esbenp.prettier-vscode"],
+  "extensions": ["vscjava.vscode-java-pack", "pivotal.vscode-boot-dev-pack", "esbenp.prettier-vscode"],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [4200, 8081],
+  "forwardPorts": [8081],
 
   // Use 'postCreateCommand' to run commands after the container is created.
   // "postCreateCommand": "java -version",
