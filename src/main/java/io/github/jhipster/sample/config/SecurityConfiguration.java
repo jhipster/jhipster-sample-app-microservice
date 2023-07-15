@@ -1,69 +1,55 @@
 package io.github.jhipster.sample.config;
 
 import io.github.jhipster.sample.security.*;
-import io.github.jhipster.sample.security.jwt.*;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationEntryPoint;
+import org.springframework.security.oauth2.server.resource.web.access.BearerTokenAccessDeniedHandler;
 import org.springframework.security.web.SecurityFilterChain;
-import org.zalando.problem.spring.web.advice.security.SecurityProblemSupport;
 import tech.jhipster.config.JHipsterProperties;
 
+@Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true)
-@Import(SecurityProblemSupport.class)
+@EnableMethodSecurity(securedEnabled = true)
 public class SecurityConfiguration {
 
     private final JHipsterProperties jHipsterProperties;
 
-    private final TokenProvider tokenProvider;
-    private final SecurityProblemSupport problemSupport;
-
-    public SecurityConfiguration(
-        TokenProvider tokenProvider,
-        JHipsterProperties jHipsterProperties,
-        SecurityProblemSupport problemSupport
-    ) {
-        this.tokenProvider = tokenProvider;
-        this.problemSupport = problemSupport;
+    public SecurityConfiguration(JHipsterProperties jHipsterProperties) {
         this.jHipsterProperties = jHipsterProperties;
     }
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        // @formatter:off
         http
-            .csrf()
-            .ignoringAntMatchers("/h2-console/**")
-            .disable()
-            .exceptionHandling()
-                .authenticationEntryPoint(problemSupport)
-                .accessDeniedHandler(problemSupport)
-        .and()
-            .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-        .and()
-            .authorizeRequests()
-            .antMatchers("/h2-console/**").permitAll()
-            .antMatchers("/api/authenticate").permitAll()
-            .antMatchers("/api/admin/**").hasAuthority(AuthoritiesConstants.ADMIN)
-            .antMatchers("/api/**").authenticated()
-            .antMatchers("/management/health").permitAll()
-            .antMatchers("/management/health/**").permitAll()
-            .antMatchers("/management/info").permitAll()
-            .antMatchers("/management/prometheus").permitAll()
-            .antMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)
-        .and()
-            .apply(securityConfigurerAdapter());
+            .csrf(csrf -> csrf.ignoringRequestMatchers("/h2-console/**").disable())
+            .authorizeHttpRequests(authz ->
+                // prettier-ignore
+                authz
+                    .requestMatchers("/h2-console/**").permitAll()
+                    .requestMatchers(HttpMethod.POST, "/api/authenticate").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/api/authenticate").permitAll()
+                    .requestMatchers("/api/admin/**").hasAuthority(AuthoritiesConstants.ADMIN)
+                    .requestMatchers("/api/**").authenticated()
+                    .requestMatchers("/v3/api-docs/**").hasAuthority(AuthoritiesConstants.ADMIN)
+                    .requestMatchers("/management/health").permitAll()
+                    .requestMatchers("/management/health/**").permitAll()
+                    .requestMatchers("/management/info").permitAll()
+                    .requestMatchers("/management/prometheus").permitAll()
+                    .requestMatchers("/management/**").hasAuthority(AuthoritiesConstants.ADMIN)
+            )
+            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .exceptionHandling(exceptions ->
+                exceptions
+                    .authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint())
+                    .accessDeniedHandler(new BearerTokenAccessDeniedHandler())
+            )
+            .oauth2ResourceServer(oauth2 -> oauth2.jwt());
         return http.build();
-        // @formatter:on
-    }
-
-    private JWTConfigurer securityConfigurerAdapter() {
-        return new JWTConfigurer(tokenProvider);
     }
 }

@@ -19,6 +19,7 @@
     "enableGradleEnterprise": false,
     "enableHibernateCache": true,
     "enableSocialSignIn": false,
+    "enableSwaggerCodegen": false,
     "enableTranslation": false,
     "entities": ["BankAccount"],
     "entitySuffix": "",
@@ -45,7 +46,7 @@
     "skipServer": false,
     "skipUserManagement": true,
     "testFrameworks": ["gatling"],
-    "websocket": false,
+    "websocket": "no",
     "withAdminUi": false
   }
 }

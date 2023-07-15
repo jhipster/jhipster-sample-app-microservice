@@ -21,6 +21,6 @@
   "name": "BankAccount",
   "pagination": "no",
   "relationships": [],
-  "searchEngine": false,
+  "searchEngine": "no",
   "service": "no"
 }

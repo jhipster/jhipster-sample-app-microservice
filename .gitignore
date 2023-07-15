@@ -1,10 +1,4 @@
 ######################
-# Project Specific
-######################
-/target/classes/static/**
-/src/test/javascript/coverage/
-
-######################
 # Node
 ######################
 /node/
@@ -36,7 +30,6 @@ local.properties
 .settings/
 .loadpath
 .factorypath
-/src/main/resources/rebel.xml
 
 # External tool builders
 .externalToolBuilders/**
