@@ -39,7 +39,7 @@
     "reactive": false,
     "searchEngine": false,
     "serverPort": "8081",
-    "serviceDiscoveryType": "eureka",
+    "serviceDiscoveryType": "consul",
     "skipCheckLengthOfIdentifier": false,
     "skipClient": true,
     "skipFakeData": false,
