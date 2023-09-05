@@ -22,10 +22,10 @@
     "ci:e2e:server:start": "java -jar target/e2e.$npm_package_config_packaging --spring.profiles.active=e2e,$npm_package_config_default_environment -Dlogging.level.ROOT=OFF -Dlogging.level.tech.jhipster=OFF -Dlogging.level.io.github.jhipster.sample=OFF -Dlogging.level.org.springframework=OFF -Dlogging.level.org.springframework.web=OFF -Dlogging.level.org.springframework.security=OFF --logging.level.org.springframework.web=ERROR",
     "ci:e2e:teardown": "npm run ci:e2e:teardown:docker --if-present",
     "ci:e2e:teardown:docker": "docker compose -f src/main/docker/services.yml down -v && docker ps -a",
+    "docker:consul:down": "docker compose -f src/main/docker/consul.yml down -v",
+    "docker:consul:up": "docker compose -f src/main/docker/consul.yml up --wait",
     "docker:db:down": "docker compose -f src/main/docker/postgresql.yml down -v",
     "docker:db:up": "docker compose -f src/main/docker/postgresql.yml up --wait",
-    "docker:jhipster-registry:down": "docker compose -f src/main/docker/jhipster-registry.yml down -v",
-    "docker:jhipster-registry:up": "docker compose -f src/main/docker/jhipster-registry.yml up --wait",
     "java:docker": "./mvnw -ntp verify -DskipTests -Pprod jib:dockerBuild",
     "java:docker:arm64": "npm run java:docker -- -Djib-maven-plugin.architecture=arm64",
     "java:docker:dev": "npm run java:docker -- -Pdev,webapp",
@@ -49,13 +49,13 @@
   "devDependencies": {
     "generator-jhipster": "7.9.3",
     "husky": "8.0.3",
-    "lint-staged": "13.2.3",
-    "prettier": "2.8.8",
-    "prettier-plugin-java": "2.2.0",
+    "lint-staged": "14.0.1",
+    "prettier": "3.0.3",
+    "prettier-plugin-java": "2.3.1",
     "prettier-plugin-packagejson": "2.4.5"
   },
   "engines": {
-    "node": ">=18.16.1"
+    "node": ">=18.17.1"
   },
   "cacheDirectories": [
     "node_modules"

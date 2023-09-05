@@ -73,6 +73,7 @@ public class JhipsterSampleMicroserviceApp {
 
     private static void logApplicationStartup(Environment env) {
         String protocol = Optional.ofNullable(env.getProperty("server.ssl.key-store")).map(key -> "https").orElse("http");
+        String applicationName = env.getProperty("spring.application.name");
         String serverPort = env.getProperty("server.port");
         String contextPath = Optional
             .ofNullable(env.getProperty("server.servlet.context-path"))
@@ -88,13 +89,13 @@ public class JhipsterSampleMicroserviceApp {
             CRLFLogConverter.CRLF_SAFE_MARKER,
             """
 
-                ----------------------------------------------------------
-                \tApplication '{}' is running! Access URLs:
-                \tLocal: \t\t{}://localhost:{}{}
-                \tExternal: \t{}://{}:{}{}
-                \tProfile(s): \t{}
-                ----------------------------------------------------------""",
-            env.getProperty("spring.application.name"),
+            ----------------------------------------------------------
+            \tApplication '{}' is running! Access URLs:
+            \tLocal: \t\t{}://localhost:{}{}
+            \tExternal: \t{}://{}:{}{}
+            \tProfile(s): \t{}
+            ----------------------------------------------------------""",
+            applicationName,
             protocol,
             serverPort,
             contextPath,

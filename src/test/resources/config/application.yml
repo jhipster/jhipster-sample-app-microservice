@@ -13,18 +13,16 @@
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
 
-eureka:
-  client:
-    enabled: false
-  instance:
-    appname: jhipsterSampleMicroservice
-    instanceId: jhipsterSampleMicroservice:${spring.application.instance-id:${random.value}}
-
 spring:
   application:
     name: jhipsterSampleMicroservice
   cloud:
-    config:
+    consul:
+      discovery:
+        enabled: false
+        instanceId: ${spring.application.name}:${spring.application.instance-id:${random.value}}
+      config:
+        enabled: false
       enabled: false
   # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
   liquibase:

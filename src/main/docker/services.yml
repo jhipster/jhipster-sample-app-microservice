@@ -5,7 +5,11 @@ services:
     extends:
       file: ./postgresql.yml
       service: postgresql
-  jhipster-registry:
+  consul:
     extends:
-      file: ./jhipster-registry.yml
-      service: jhipster-registry
+      file: ./consul.yml
+      service: consul
+  consul-config-loader:
+    extends:
+      file: ./consul.yml
+      service: consul-config-loader

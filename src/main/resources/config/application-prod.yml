@@ -19,13 +19,6 @@ logging:
     tech.jhipster: INFO
     io.github.jhipster.sample: INFO
 
-eureka:
-  instance:
-    prefer-ip-address: true
-  client:
-    service-url:
-      defaultZone: http://admin:${jhipster.registry.password}@localhost:8761/eureka/
-
 management:
   prometheus:
     metrics:
@@ -45,17 +38,11 @@ spring:
     livereload:
       enabled: false
   cloud:
-    config:
-      retry:
-        initial-interval: 1000
-        max-interval: 2000
-        max-attempts: 100
-      uri: http://admin:${jhipster.registry.password}@localhost:8761/config
-      # name of the config server's property source (file.yml) that we want to use
-      name: jhipsterSampleMicroservice
-      profile: prod
-      label: main # toggle to switch to a different version of the configuration as stored in git
-      # it can be set to any label, branch or commit of the configuration source Git repository
+    consul:
+      discovery:
+        prefer-ip-address: true
+      host: localhost
+      port: 8500
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:postgresql://localhost:5432/jhipsterSampleMicroservice
@@ -111,14 +98,12 @@ jhipster:
     hazelcast: # Hazelcast distributed cache
       time-to-live-seconds: 3600
       backup-count: 1
-  registry:
-    password: admin
   security:
     authentication:
       jwt:
         # This token must be encoded using Base64 and be at least 256 bits long (you can type `openssl rand -base64 64` on your command line to generate a 512 bits one)
         # As this is the PRODUCTION configuration, you MUST change the default key, and store it securely:
-        # - In the JHipster Registry (which includes a Spring Cloud Config server)
+        # - In the Consul configserver
         # - In a separate `application-prod.yml` file, in the same folder as your executable JAR file
         # - In the `JHIPSTER_SECURITY_AUTHENTICATION_JWT_BASE64_SECRET` environment variable
         base64-secret: bXktc2VjcmV0LWtleS13aGljaC1zaG91bGQtYmUtY2hhbmdlZC1pbi1wcm9kdWN0aW9uLWFuZC1iZS1iYXNlNjQtZW5jb2RlZAo=

@@ -60,13 +60,7 @@ public class ExceptionTranslator extends ResponseEntityExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<Object> handleAnyException(Throwable ex, NativeWebRequest request) {
         ProblemDetailWithCause pdCause = wrapAndCustomizeProblem(ex, request);
-        return handleExceptionInternal(
-            (Exception) ex,
-            pdCause,
-            buildHeaders(ex, request),
-            HttpStatusCode.valueOf(pdCause.getStatus()),
-            request
-        );
+        return handleExceptionInternal((Exception) ex, pdCause, buildHeaders(ex), HttpStatusCode.valueOf(pdCause.getStatus()), request);
     }
 
     @Nullable
@@ -88,8 +82,8 @@ public class ExceptionTranslator extends ResponseEntityExceptionHandler {
 
     private ProblemDetailWithCause getProblemDetailWithCause(Throwable ex) {
         if (
-            ex instanceof ErrorResponseException exp && exp.getBody() instanceof ProblemDetailWithCause
-        ) return (ProblemDetailWithCause) exp.getBody();
+            ex instanceof ErrorResponseException exp && exp.getBody() instanceof ProblemDetailWithCause problemDetailWithCause
+        ) return problemDetailWithCause;
         return ProblemDetailWithCauseBuilder.instance().withStatus(toStatus(ex).value()).build();
     }
 
@@ -119,9 +113,9 @@ public class ExceptionTranslator extends ResponseEntityExceptionHandler {
         if (problemProperties == null || !problemProperties.containsKey(PATH_KEY)) problem.setProperty(PATH_KEY, getPathValue(request));
 
         if (
-            (err instanceof MethodArgumentNotValidException) &&
+            (err instanceof MethodArgumentNotValidException fieldException) &&
             (problemProperties == null || !problemProperties.containsKey(FIELD_ERRORS_KEY))
-        ) problem.setProperty(FIELD_ERRORS_KEY, getFieldErrors((MethodArgumentNotValidException) err));
+        ) problem.setProperty(FIELD_ERRORS_KEY, getFieldErrors(fieldException));
 
         problem.setCause(buildCause(err.getCause(), request).orElse(null));
 
@@ -178,19 +172,21 @@ public class ExceptionTranslator extends ResponseEntityExceptionHandler {
     }
 
     private URI getMappedType(Throwable err) {
-        if (err instanceof MethodArgumentNotValidException exp) return ErrorConstants.CONSTRAINT_VIOLATION_TYPE;
+        if (err instanceof MethodArgumentNotValidException) return ErrorConstants.CONSTRAINT_VIOLATION_TYPE;
         return ErrorConstants.DEFAULT_TYPE;
     }
 
     private String getMappedMessageKey(Throwable err) {
-        if (err instanceof MethodArgumentNotValidException) return ErrorConstants.ERR_VALIDATION; else if (
-            err instanceof ConcurrencyFailureException || err.getCause() != null && err.getCause() instanceof ConcurrencyFailureException
-        ) return ErrorConstants.ERR_CONCURRENCY_FAILURE;
+        if (err instanceof MethodArgumentNotValidException) {
+            return ErrorConstants.ERR_VALIDATION;
+        } else if (err instanceof ConcurrencyFailureException || err.getCause() instanceof ConcurrencyFailureException) {
+            return ErrorConstants.ERR_CONCURRENCY_FAILURE;
+        }
         return null;
     }
 
     private String getCustomizedTitle(Throwable err) {
-        if (err instanceof MethodArgumentNotValidException exp) return "Method argument not valid";
+        if (err instanceof MethodArgumentNotValidException) return "Method argument not valid";
         return null;
     }
 
@@ -217,14 +213,14 @@ public class ExceptionTranslator extends ResponseEntityExceptionHandler {
         return URI.create(extractURI(request));
     }
 
-    private HttpHeaders buildHeaders(Throwable err, NativeWebRequest request) {
-        return err instanceof BadRequestAlertException
+    private HttpHeaders buildHeaders(Throwable err) {
+        return err instanceof BadRequestAlertException badRequestAlertException
             ? HeaderUtil.createFailureAlert(
                 applicationName,
                 true,
-                ((BadRequestAlertException) err).getEntityName(),
-                ((BadRequestAlertException) err).getErrorKey(),
-                ((BadRequestAlertException) err).getMessage()
+                badRequestAlertException.getEntityName(),
+                badRequestAlertException.getErrorKey(),
+                badRequestAlertException.getMessage()
             )
             : null;
     }

@@ -24,30 +24,6 @@ springdoc:
   api-docs:
     enabled: false
 ---
-eureka:
-  client:
-    enabled: true
-    healthcheck:
-      enabled: true
-    fetch-registry: true
-    register-with-eureka: true
-    instance-info-replication-interval-seconds: 10
-    registry-fetch-interval-seconds: 10
-  instance:
-    appname: jhipstersamplemicroservice
-    instanceId: jhipstersamplemicroservice:${spring.application.instance-id:${random.value}}
-    lease-renewal-interval-in-seconds: 5
-    lease-expiration-duration-in-seconds: 10
-    status-page-url-path: ${management.endpoints.web.base-path}/info
-    health-check-url-path: ${management.endpoints.web.base-path}/health
-    metadata-map:
-      zone: primary # This is needed for the load balancer
-      profile: ${spring.profiles.active}
-      version: #project.version#
-      git-version: ${git.commit.id.describe:}
-      git-commit: ${git.commit.id.abbrev:}
-      git-branch: ${git.branch:}
-      context-path: ${server.servlet.context-path:}
 feign:
   circuitbreaker:
     enabled: true
@@ -122,6 +98,15 @@ management:
 spring:
   application:
     name: jhipsterSampleMicroservice
+  cloud:
+    consul:
+      discovery:
+        healthCheckPath: /management/health
+        instanceId: jhipstersamplemicroservice:${spring.application.instance-id:${random.value}}
+        service-name: jhipstersamplemicroservice
+      config:
+        watch:
+          enabled: false
   profiles:
     # The commented value for `active` can be replaced with valid Spring profiles to load.
     # Otherwise, it will be filled in by maven when building the JAR file
@@ -143,6 +128,7 @@ spring:
     open-in-view: false
     properties:
       hibernate.jdbc.time_zone: UTC
+      hibernate.timezone.default_storage: NORMALIZE
       hibernate.type.preferred_instant_jdbc_type: TIMESTAMP
       hibernate.id.new_generator_mappings: true
       hibernate.connection.provider_disables_autocommit: true
@@ -222,8 +208,8 @@ jhipster:
   mail:
     from: jhipsterSampleMicroservice@localhost
   api-docs:
-    default-include-pattern: ${server.servlet.context-path:}/api/**
-    management-include-pattern: ${server.servlet.context-path:}/management/**
+    default-include-pattern: /api/**
+    management-include-pattern: /management/**
     title: Jhipster Sample Microservice API
     description: Jhipster Sample Microservice API documentation
     version: 0.0.1

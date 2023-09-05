@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.info.BuildProperties;
+import org.springframework.cloud.consul.serviceregistry.ConsulRegistration;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Configuration;
 import tech.jhipster.config.JHipsterProperties;
@@ -26,6 +27,7 @@ public class LoggingConfiguration {
         @Value("${spring.application.name}") String appName,
         @Value("${server.port}") String serverPort,
         JHipsterProperties jHipsterProperties,
+        ObjectProvider<ConsulRegistration> consulRegistration,
         ObjectProvider<BuildProperties> buildProperties,
         ObjectMapper mapper
     ) throws JsonProcessingException {
@@ -35,6 +37,7 @@ public class LoggingConfiguration {
         map.put("app_name", appName);
         map.put("app_port", serverPort);
         buildProperties.ifAvailable(it -> map.put("version", it.getVersion()));
+        consulRegistration.ifAvailable(it -> map.put("instance_id", it.getInstanceId()));
         String customFields = mapper.writeValueAsString(map);
 
         JHipsterProperties.Logging loggingProperties = jHipsterProperties.getLogging();
