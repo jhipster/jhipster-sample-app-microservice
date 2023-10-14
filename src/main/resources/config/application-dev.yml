@@ -56,7 +56,7 @@ spring:
       port: 8500
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:file:./target/h2db/db/jhipstersamplemicroservice;DB_CLOSE_DELAY=-1
+    url: jdbc:h2:file:./target/h2db/db/jhipsterSampleMicroservice;DB_CLOSE_DELAY=-1
     username: jhipsterSampleMicroservice
     password:
     hikari:
