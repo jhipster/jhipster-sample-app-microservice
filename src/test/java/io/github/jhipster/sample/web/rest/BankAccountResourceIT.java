@@ -41,7 +41,7 @@ class BankAccountResourceIT {
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
     private static Random random = new Random();
-    private static AtomicLong count = new AtomicLong(random.nextInt() + (2 * Integer.MAX_VALUE));
+    private static AtomicLong longCount = new AtomicLong(random.nextInt() + (2 * Integer.MAX_VALUE));
 
     @Autowired
     private BankAccountRepository bankAccountRepository;
@@ -223,7 +223,7 @@ class BankAccountResourceIT {
     @Transactional
     void putNonExistingBankAccount() throws Exception {
         int databaseSizeBeforeUpdate = bankAccountRepository.findAll().size();
-        bankAccount.setId(count.incrementAndGet());
+        bankAccount.setId(longCount.incrementAndGet());
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restBankAccountMockMvc
@@ -243,12 +243,12 @@ class BankAccountResourceIT {
     @Transactional
     void putWithIdMismatchBankAccount() throws Exception {
         int databaseSizeBeforeUpdate = bankAccountRepository.findAll().size();
-        bankAccount.setId(count.incrementAndGet());
+        bankAccount.setId(longCount.incrementAndGet());
 
         // If url ID doesn't match entity ID, it will throw BadRequestAlertException
         restBankAccountMockMvc
             .perform(
-                put(ENTITY_API_URL_ID, count.incrementAndGet())
+                put(ENTITY_API_URL_ID, longCount.incrementAndGet())
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(TestUtil.convertObjectToJsonBytes(bankAccount))
             )
@@ -263,7 +263,7 @@ class BankAccountResourceIT {
     @Transactional
     void putWithMissingIdPathParamBankAccount() throws Exception {
         int databaseSizeBeforeUpdate = bankAccountRepository.findAll().size();
-        bankAccount.setId(count.incrementAndGet());
+        bankAccount.setId(longCount.incrementAndGet());
 
         // If url ID doesn't match entity ID, it will throw BadRequestAlertException
         restBankAccountMockMvc
@@ -339,7 +339,7 @@ class BankAccountResourceIT {
     @Transactional
     void patchNonExistingBankAccount() throws Exception {
         int databaseSizeBeforeUpdate = bankAccountRepository.findAll().size();
-        bankAccount.setId(count.incrementAndGet());
+        bankAccount.setId(longCount.incrementAndGet());
 
         // If the entity doesn't have an ID, it will throw BadRequestAlertException
         restBankAccountMockMvc
@@ -359,12 +359,12 @@ class BankAccountResourceIT {
     @Transactional
     void patchWithIdMismatchBankAccount() throws Exception {
         int databaseSizeBeforeUpdate = bankAccountRepository.findAll().size();
-        bankAccount.setId(count.incrementAndGet());
+        bankAccount.setId(longCount.incrementAndGet());
 
         // If url ID doesn't match entity ID, it will throw BadRequestAlertException
         restBankAccountMockMvc
             .perform(
-                patch(ENTITY_API_URL_ID, count.incrementAndGet())
+                patch(ENTITY_API_URL_ID, longCount.incrementAndGet())
                     .contentType("application/merge-patch+json")
                     .content(TestUtil.convertObjectToJsonBytes(bankAccount))
             )
@@ -379,7 +379,7 @@ class BankAccountResourceIT {
     @Transactional
     void patchWithMissingIdPathParamBankAccount() throws Exception {
         int databaseSizeBeforeUpdate = bankAccountRepository.findAll().size();
-        bankAccount.setId(count.incrementAndGet());
+        bankAccount.setId(longCount.incrementAndGet());
 
         // If url ID doesn't match entity ID, it will throw BadRequestAlertException
         restBankAccountMockMvc
