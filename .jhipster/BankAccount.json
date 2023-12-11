@@ -1,4 +1,7 @@
 {
+  "annotations": {
+    "changelogDate": "20161016121722"
+  },
   "changelogDate": "20161016121722",
   "clientRootFolder": "jhipsterSampleMicroservice",
   "databaseType": "sql",

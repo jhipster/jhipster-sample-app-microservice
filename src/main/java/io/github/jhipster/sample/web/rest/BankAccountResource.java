@@ -160,7 +160,7 @@ public class BankAccountResource {
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the bankAccount, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/{id}")
-    public ResponseEntity<BankAccount> getBankAccount(@PathVariable Long id) {
+    public ResponseEntity<BankAccount> getBankAccount(@PathVariable("id") Long id) {
         log.debug("REST request to get BankAccount : {}", id);
         Optional<BankAccount> bankAccount = bankAccountRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(bankAccount);
@@ -173,7 +173,7 @@ public class BankAccountResource {
      * @return the {@link ResponseEntity} with status {@code 204 (NO_CONTENT)}.
      */
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteBankAccount(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteBankAccount(@PathVariable("id") Long id) {
         log.debug("REST request to delete BankAccount : {}", id);
         bankAccountRepository.deleteById(id);
         return ResponseEntity
