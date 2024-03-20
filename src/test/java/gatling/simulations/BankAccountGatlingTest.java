@@ -92,8 +92,7 @@ public class BankAccountGatlingTest extends Simulation {
                         http("Get created bankAccount")
                             .get("/services/jhipstersamplemicroservice${new_bankAccount_url}")
                             .headers(headers_http_authenticated)
-                    )
-                        .pause(10)
+                    ).pause(10)
                 )
                 .exec(
                     http("Delete created bankAccount")
@@ -106,7 +105,8 @@ public class BankAccountGatlingTest extends Simulation {
     ScenarioBuilder users = scenario("Test the BankAccount entity").exec(scn);
 
     {
-        setUp(users.injectOpen(rampUsers(Integer.getInteger("users", 100)).during(Duration.ofMinutes(Integer.getInteger("ramp", 1)))))
-            .protocols(httpConf);
+        setUp(
+            users.injectOpen(rampUsers(Integer.getInteger("users", 100)).during(Duration.ofMinutes(Integer.getInteger("ramp", 1))))
+        ).protocols(httpConf);
     }
 }

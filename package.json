@@ -36,7 +36,7 @@
     "java:war": "./mvnw -ntp verify -DskipTests --batch-mode -Pwar",
     "java:war:dev": "npm run java:war -- -Pdev,webapp",
     "java:war:prod": "npm run java:war -- -Pprod",
-    "prepare": "husky install",
+    "prepare": "husky",
     "prettier:check": "prettier --check \"{,src/**/,.blueprint/**/}*.{md,json,yml,html,java}\"",
     "prettier:format": "prettier --write \"{,src/**/,.blueprint/**/}*.{md,json,yml,html,java}\"",
     "services:up": "docker compose -f src/main/docker/services.yml up --wait"
@@ -47,15 +47,15 @@
     "packaging": "jar"
   },
   "devDependencies": {
-    "generator-jhipster": "8.1.0",
-    "husky": "8.0.3",
-    "lint-staged": "15.2.0",
-    "prettier": "3.1.0",
-    "prettier-plugin-java": "2.5.0",
-    "prettier-plugin-packagejson": "2.4.7"
+    "generator-jhipster": "8.2.1",
+    "husky": "9.0.11",
+    "lint-staged": "15.2.2",
+    "prettier": "3.2.5",
+    "prettier-plugin-java": "2.6.0",
+    "prettier-plugin-packagejson": "2.4.12"
   },
   "engines": {
-    "node": ">=18.18.2"
+    "node": ">=20.11.1"
   },
   "cacheDirectories": [
     "node_modules"

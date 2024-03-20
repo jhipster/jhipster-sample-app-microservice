@@ -1,8 +1,9 @@
 # jhipsterSampleMicroservice
 
-This application was generated using JHipster 8.1.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v8.1.0](https://www.jhipster.tech/documentation-archive/v8.1.0).
+This application was generated using JHipster 8.2.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v8.2.1](https://www.jhipster.tech/documentation-archive/v8.2.1).
 
 This is a "microservice" application intended to be part of a microservice architecture, please refer to the [Doing microservices with JHipster][] page of the documentation for more information.
+
 This application is configured for Service Discovery and Configuration with Consul. On launch, it will refuse to start if it is not able to connect to Consul at [http://localhost:8500](http://localhost:8500). For more information, read our documentation on [Service Discovery and Configuration with Consul][].
 
 ## Project Structure
@@ -16,7 +17,7 @@ In the project root, JHipster generates configuration files for tools like git, 
 - `.yo-rc.json` - Yeoman configuration file
   JHipster configuration is stored in this file at `generator-jhipster` key. You may find `generator-jhipster-*` for specific blueprints configuration.
 - `.yo-resolve` (optional) - Yeoman conflict resolver
-  Allows to use a specific action when conflicts are found skipping prompts for files that matches a pattern. Each line should match `[pattern] [action]` with pattern been a [Minimatch](https://github.com/isaacs/minimatch#minimatch) pattern and action been one of skip (default if ommited) or force. Lines starting with `#` are considered comments and are ignored.
+  Allows to use a specific action when conflicts are found skipping prompts for files that matches a pattern. Each line should match `[pattern] [action]` with pattern been a [Minimatch](https://github.com/isaacs/minimatch#minimatch) pattern and action been one of skip (default if omitted) or force. Lines starting with `#` are considered comments and are ignored.
 - `.jhipster/*.json` - JHipster entity configuration files
 - `/src/main/docker` - Docker configurations for the application and services that the application depends on
 
@@ -163,15 +164,15 @@ For more information refer to [Using Docker and Docker-Compose][], this page als
 To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`), this will let you generate configuration files for a number of Continuous Integration systems. Consult the [Setting up Continuous Integration][] page for more information.
 
 [JHipster Homepage and latest documentation]: https://www.jhipster.tech
-[JHipster 8.1.0 archive]: https://www.jhipster.tech/documentation-archive/v8.1.0
-[Doing microservices with JHipster]: https://www.jhipster.tech/documentation-archive/v8.1.0/microservices-architecture/
-[Using JHipster in development]: https://www.jhipster.tech/documentation-archive/v8.1.0/development/
-[Service Discovery and Configuration with Consul]: https://www.jhipster.tech/documentation-archive/v8.1.0/microservices-architecture/#consul
-[Using Docker and Docker-Compose]: https://www.jhipster.tech/documentation-archive/v8.1.0/docker-compose
-[Using JHipster in production]: https://www.jhipster.tech/documentation-archive/v8.1.0/production/
-[Running tests page]: https://www.jhipster.tech/documentation-archive/v8.1.0/running-tests/
-[Code quality page]: https://www.jhipster.tech/documentation-archive/v8.1.0/code-quality/
-[Setting up Continuous Integration]: https://www.jhipster.tech/documentation-archive/v8.1.0/setting-up-ci/
+[JHipster 8.2.1 archive]: https://www.jhipster.tech/documentation-archive/v8.2.1
+[Doing microservices with JHipster]: https://www.jhipster.tech/documentation-archive/v8.2.1/microservices-architecture/
+[Using JHipster in development]: https://www.jhipster.tech/documentation-archive/v8.2.1/development/
+[Service Discovery and Configuration with Consul]: https://www.jhipster.tech/documentation-archive/v8.2.1/microservices-architecture/#consul
+[Using Docker and Docker-Compose]: https://www.jhipster.tech/documentation-archive/v8.2.1/docker-compose
+[Using JHipster in production]: https://www.jhipster.tech/documentation-archive/v8.2.1/production/
+[Running tests page]: https://www.jhipster.tech/documentation-archive/v8.2.1/running-tests/
+[Code quality page]: https://www.jhipster.tech/documentation-archive/v8.2.1/code-quality/
+[Setting up Continuous Integration]: https://www.jhipster.tech/documentation-archive/v8.2.1/setting-up-ci/
 [Node.js]: https://nodejs.org/
 [NPM]: https://www.npmjs.com/
 [Gatling]: https://gatling.io/
