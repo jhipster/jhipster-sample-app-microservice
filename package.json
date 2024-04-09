@@ -10,7 +10,7 @@
     "backend:build-cache": "./mvnw dependency:go-offline -ntp",
     "backend:debug": "./mvnw -Dspring-boot.run.jvmArguments=\"-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000\"",
     "backend:doc:test": "./mvnw -ntp javadoc:javadoc --batch-mode",
-    "backend:info": "./mvnw -ntp enforcer:display-info --batch-mode",
+    "backend:info": "./mvnw --version",
     "backend:nohttp:test": "./mvnw -ntp checkstyle:check --batch-mode",
     "backend:start": "./mvnw",
     "backend:unit:test": "./mvnw -ntp verify --batch-mode -Dlogging.level.ROOT=OFF -Dlogging.level.tech.jhipster=OFF -Dlogging.level.io.github.jhipster.sample=OFF -Dlogging.level.org.springframework=OFF -Dlogging.level.org.springframework.web=OFF -Dlogging.level.org.springframework.security=OFF",
@@ -47,15 +47,15 @@
     "packaging": "jar"
   },
   "devDependencies": {
-    "generator-jhipster": "8.2.1",
+    "generator-jhipster": "8.3.0",
     "husky": "9.0.11",
     "lint-staged": "15.2.2",
     "prettier": "3.2.5",
     "prettier-plugin-java": "2.6.0",
-    "prettier-plugin-packagejson": "2.4.12"
+    "prettier-plugin-packagejson": "2.4.14"
   },
   "engines": {
-    "node": ">=20.11.1"
+    "node": ">=20.12.1"
   },
   "cacheDirectories": [
     "node_modules"
