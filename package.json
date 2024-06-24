@@ -22,6 +22,7 @@
     "ci:e2e:server:start": "java -jar target/e2e.$npm_package_config_packaging --spring.profiles.active=e2e,$npm_package_config_default_environment -Dlogging.level.ROOT=OFF -Dlogging.level.tech.jhipster=OFF -Dlogging.level.io.github.jhipster.sample=OFF -Dlogging.level.org.springframework=OFF -Dlogging.level.org.springframework.web=OFF -Dlogging.level.org.springframework.security=OFF --logging.level.org.springframework.web=ERROR",
     "ci:e2e:teardown": "npm run ci:e2e:teardown:docker --if-present",
     "ci:e2e:teardown:docker": "docker compose -f src/main/docker/services.yml down -v && docker ps -a",
+    "ci:server:await": "echo \"Waiting for server at port $npm_package_config_backend_port to start\" && wait-on -t 180000 http-get://127.0.0.1:undefined/services/jhipstersamplemicroservice/management/health/readiness && echo \"Server at port $npm_package_config_backend_port started\"",
     "docker:consul:down": "docker compose -f src/main/docker/consul.yml down -v",
     "docker:consul:up": "docker compose -f src/main/docker/consul.yml up --wait",
     "docker:db:down": "docker compose -f src/main/docker/postgresql.yml down -v",
@@ -47,15 +48,15 @@
     "packaging": "jar"
   },
   "devDependencies": {
-    "generator-jhipster": "8.5.0",
+    "generator-jhipster": "8.6.0",
     "husky": "9.0.11",
-    "lint-staged": "15.2.5",
-    "prettier": "3.2.5",
+    "lint-staged": "15.2.7",
+    "prettier": "3.3.2",
     "prettier-plugin-java": "2.6.0",
     "prettier-plugin-packagejson": "2.5.0"
   },
   "engines": {
-    "node": ">=20.14.0"
+    "node": ">=20.15.0"
   },
   "cacheDirectories": [
     "node_modules"
