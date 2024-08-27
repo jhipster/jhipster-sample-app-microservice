@@ -95,6 +95,8 @@ management:
       repository:
         autotime:
           enabled: true
+    tags:
+      application: ${spring.application.name}
 
 spring:
   application:

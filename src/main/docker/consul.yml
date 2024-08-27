@@ -2,7 +2,7 @@
 name: jhipstersamplemicroservice
 services:
   consul:
-    image: docker.io/bitnami/consul:1.19.0
+    image: docker.io/bitnami/consul:1.19.1
     # If you want to expose these ports outside your dev PC,
     # remove the "127.0.0.1:" prefix
     ports:
