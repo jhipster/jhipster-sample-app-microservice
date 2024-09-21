@@ -2,7 +2,7 @@
 name: jhipstersamplemicroservice
 services:
   consul:
-    image: docker.io/bitnami/consul:1.19.1
+    image: docker.io/bitnami/consul:1.19.2
     # If you want to expose these ports outside your dev PC,
     # remove the "127.0.0.1:" prefix
     ports:
@@ -10,6 +10,8 @@ services:
       - 127.0.0.1:8500:8500
       - 127.0.0.1:8600:8600
     command: consul agent -dev -ui -client 0.0.0.0 -log-level=INFO
+    labels:
+      org.springframework.boot.ignore: true
 
   consul-config-loader:
     image: jhipster/consul-config-loader:v0.4.1
@@ -23,3 +25,5 @@ services:
       # as configured in central-server-config/git2consul.json
       # Also set SPRING_CLOUD_CONSUL_CONFIG_FORMAT=files on your apps
       # - CONFIG_MODE=git
+    labels:
+      org.springframework.boot.ignore: true

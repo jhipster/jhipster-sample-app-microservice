@@ -28,3 +28,8 @@ spring:
 
       host: localhost
       port: 8500
+  docker:
+    compose:
+      enabled: true
+      lifecycle-management: start-only
+      file: src/main/docker/postgresql.yml
