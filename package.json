@@ -4,7 +4,6 @@
   "private": true,
   "description": "Description for jhipsterSampleMicroservice",
   "license": "UNLICENSED",
-  "type": "commonjs",
   "scripts": {
     "app:start": "./mvnw",
     "app:up": "docker compose -f src/main/docker/app.yml up --wait",
@@ -49,15 +48,15 @@
     "packaging": "jar"
   },
   "devDependencies": {
-    "generator-jhipster": "8.7.1",
+    "generator-jhipster": "8.7.2",
     "husky": "9.1.6",
     "lint-staged": "15.2.10",
     "prettier": "3.3.3",
-    "prettier-plugin-java": "2.6.4",
-    "prettier-plugin-packagejson": "2.5.2"
+    "prettier-plugin-java": "2.6.5",
+    "prettier-plugin-packagejson": "2.5.3"
   },
   "engines": {
-    "node": ">=20.17.0"
+    "node": ">=20.18.0"
   },
   "cacheDirectories": [
     "node_modules"
