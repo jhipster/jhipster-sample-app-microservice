@@ -2,12 +2,11 @@
 name: jhipstersamplemicroservice
 services:
   postgresql:
-    image: postgres:17.0
+    image: postgres:17.2
     # volumes:
     #   - ~/volumes/jhipster/jhipsterSampleMicroservice/postgresql/:/var/lib/postgresql/data/
     environment:
       - POSTGRES_USER=jhipsterSampleMicroservice
-      - POSTGRES_PASSWORD=password
       - POSTGRES_HOST_AUTH_METHOD=trust
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U $${POSTGRES_USER}']

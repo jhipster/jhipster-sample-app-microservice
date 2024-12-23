@@ -5,14 +5,14 @@
   "description": "Description for jhipsterSampleMicroservice",
   "license": "UNLICENSED",
   "scripts": {
-    "app:start": "./mvnw",
+    "app:start": "./mvnw -ntp --batch-mode",
     "app:up": "docker compose -f src/main/docker/app.yml up --wait",
     "backend:build-cache": "./mvnw dependency:go-offline -ntp",
     "backend:debug": "./mvnw -Dspring-boot.run.jvmArguments=\"-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8000\"",
     "backend:doc:test": "./mvnw -ntp javadoc:javadoc --batch-mode",
     "backend:info": "./mvnw --version",
     "backend:nohttp:test": "./mvnw -ntp checkstyle:check --batch-mode",
-    "backend:start": "./mvnw",
+    "backend:start": "./mvnw -ntp --batch-mode",
     "backend:unit:test": "./mvnw -ntp verify --batch-mode -Dlogging.level.ROOT=OFF -Dlogging.level.tech.jhipster=OFF -Dlogging.level.io.github.jhipster.sample=OFF -Dlogging.level.org.springframework=OFF -Dlogging.level.org.springframework.web=OFF -Dlogging.level.org.springframework.security=OFF",
     "ci:backend:test": "npm run backend:info && npm run backend:doc:test && npm run backend:nohttp:test && npm run backend:unit:test -- -P$npm_package_config_default_environment",
     "ci:e2e:package": "npm run java:$npm_package_config_packaging:$npm_package_config_default_environment -- -Pe2e -Denforcer.skip=true",
@@ -48,15 +48,15 @@
     "packaging": "jar"
   },
   "devDependencies": {
-    "generator-jhipster": "8.7.3",
-    "husky": "9.1.6",
-    "lint-staged": "15.2.10",
-    "prettier": "3.3.3",
+    "generator-jhipster": "8.8.0",
+    "husky": "9.1.7",
+    "lint-staged": "15.2.11",
+    "prettier": "3.4.2",
     "prettier-plugin-java": "2.6.5",
-    "prettier-plugin-packagejson": "2.5.3"
+    "prettier-plugin-packagejson": "2.5.6"
   },
   "engines": {
-    "node": ">=22.11.0"
+    "node": ">=22.12.0"
   },
   "cacheDirectories": [
     "node_modules"
