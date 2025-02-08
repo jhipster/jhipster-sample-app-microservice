@@ -14,11 +14,11 @@
     "backend:nohttp:test": "./mvnw -ntp checkstyle:check --batch-mode",
     "backend:start": "./mvnw -ntp --batch-mode",
     "backend:unit:test": "./mvnw -ntp verify --batch-mode -Dlogging.level.ROOT=OFF -Dlogging.level.tech.jhipster=OFF -Dlogging.level.io.github.jhipster.sample=OFF -Dlogging.level.org.springframework=OFF -Dlogging.level.org.springframework.web=OFF -Dlogging.level.org.springframework.security=OFF",
+    "preci:e2e:server:start": "npm run services:db:await --if-present && npm run services:others:await --if-present",
     "ci:backend:test": "npm run backend:info && npm run backend:doc:test && npm run backend:nohttp:test && npm run backend:unit:test -- -P$npm_package_config_default_environment",
     "ci:e2e:package": "npm run java:$npm_package_config_packaging:$npm_package_config_default_environment -- -Pe2e -Denforcer.skip=true",
     "ci:e2e:prepare": "npm run ci:e2e:prepare:docker",
     "ci:e2e:prepare:docker": "npm run services:up --if-present && docker ps -a",
-    "preci:e2e:server:start": "npm run services:db:await --if-present && npm run services:others:await --if-present",
     "ci:e2e:server:start": "java -jar target/e2e.$npm_package_config_packaging --spring.profiles.active=e2e,$npm_package_config_default_environment -Dlogging.level.ROOT=OFF -Dlogging.level.tech.jhipster=OFF -Dlogging.level.io.github.jhipster.sample=OFF -Dlogging.level.org.springframework=OFF -Dlogging.level.org.springframework.web=OFF -Dlogging.level.org.springframework.security=OFF --logging.level.org.springframework.web=ERROR",
     "ci:e2e:teardown": "npm run ci:e2e:teardown:docker --if-present",
     "ci:e2e:teardown:docker": "docker compose -f src/main/docker/services.yml down -v && docker ps -a",
@@ -48,15 +48,15 @@
     "packaging": "jar"
   },
   "devDependencies": {
-    "generator-jhipster": "8.8.0",
+    "generator-jhipster": "8.9.0",
     "husky": "9.1.7",
-    "lint-staged": "15.2.11",
+    "lint-staged": "15.4.3",
     "prettier": "3.4.2",
-    "prettier-plugin-java": "2.6.5",
-    "prettier-plugin-packagejson": "2.5.6"
+    "prettier-plugin-java": "2.6.7",
+    "prettier-plugin-packagejson": "2.5.8"
   },
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.13.1"
   },
   "cacheDirectories": [
     "node_modules"
