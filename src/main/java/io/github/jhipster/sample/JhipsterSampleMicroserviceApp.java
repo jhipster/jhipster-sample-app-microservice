@@ -66,6 +66,21 @@ public class JhipsterSampleMicroserviceApp {
      * @param args the command line arguments.
      */
     public static void main(String[] args) {
+        try {
+            // Workaround Hazelcast issue: https://github.com/hazelcast/hazelcast/issues/26361#issuecomment-2489778475
+            Class.forName(
+                "org.springframework.boot.devtools.autoconfigure.DevToolsProperties",
+                false,
+                SpringApplication.class.getClassLoader()
+            );
+            System.setProperty("spring.devtools.restart.enabled", "false");
+            LOG.warn(
+                "Spring Boot Developer Tools restart has been disabled using System property in order to prevent issues with Hazelcast"
+            );
+        } catch (Exception e) {
+            // Devtools not found, ignore
+        }
+
         SpringApplication app = new SpringApplication(JhipsterSampleMicroserviceApp.class);
         DefaultProfileUtil.addDefaultProfile(app);
         Environment env = app.run(args).getEnvironment();

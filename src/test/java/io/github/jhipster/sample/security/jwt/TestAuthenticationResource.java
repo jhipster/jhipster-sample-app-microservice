@@ -1,6 +1,7 @@
 package io.github.jhipster.sample.security.jwt;
 
-import org.springframework.http.MediaType;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -12,11 +13,9 @@ public class TestAuthenticationResource {
 
     /**
      * {@code GET  /authenticate} : check if the authentication token correctly validates
-     *
-     * @return ok.
      */
-    @GetMapping(value = "/authenticate", produces = MediaType.TEXT_PLAIN_VALUE)
-    public String isAuthenticated() {
-        return "ok";
+    @GetMapping("/authenticate")
+    public ResponseEntity<Void> isAuthenticated() {
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 }
