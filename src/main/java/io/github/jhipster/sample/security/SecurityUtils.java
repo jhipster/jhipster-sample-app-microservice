@@ -18,7 +18,7 @@ public final class SecurityUtils {
 
     public static final MacAlgorithm JWT_ALGORITHM = MacAlgorithm.HS512;
 
-    public static final String AUTHORITIES_KEY = "auth";
+    public static final String AUTHORITIES_CLAIM = "auth";
 
     private SecurityUtils() {}
 
