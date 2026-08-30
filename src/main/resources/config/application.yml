@@ -223,7 +223,6 @@ jhipster:
     contact-email:
     license: unlicensed
     license-url:
-  security:
 
 
 # jhipster-needle-add-application-yaml-document

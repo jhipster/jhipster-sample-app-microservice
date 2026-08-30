@@ -2,7 +2,7 @@
 name: jhipstersamplemicroservice
 services:
   consul:
-    image: hashicorp/consul:2.0.2
+    image: hashicorp/consul:2.0.3
     # If you want to expose these ports outside your dev PC,
     # remove the "127.0.0.1:" prefix
     ports:
