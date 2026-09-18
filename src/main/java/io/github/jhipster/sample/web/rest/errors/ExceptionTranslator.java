@@ -239,7 +239,7 @@ public class ExceptionTranslator extends ResponseEntityExceptionHandler {
         if (throwable != null && isCausalChainEnabled()) {
             return Optional.of(customizeProblem(getProblemDetailWithCause(throwable), throwable, request));
         }
-        return Optional.ofNullable(null);
+        return Optional.empty();
     }
 
     private boolean isCausalChainEnabled() {
